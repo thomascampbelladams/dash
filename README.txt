@@ -54,11 +54,3 @@ Bugs:
 Parts of the assignment attempted:
 * The buddy system was pretty much all I had time to implement for this project. I did not get a chance to fully
 implement the piping in the shell.
-
-Personal Observations:
-After a stressful day with the last project and having to rewrite the program so it worked as it did before,
-I started taking SVN a lot more seriously after that. I used it extensively on this project so I couldn't
-lose track of my changes.
-
-Also, Tortoise SVN is such a nice tool for this. I'm surprised Mac/Linux don't have anything as nice as this tool
-for SVN.
