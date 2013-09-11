@@ -1,6 +1,5 @@
 Thomas Campbell-Adams
 12/9/2011
-Assignment 6
 
 To compile:
 * dash: simply type make
