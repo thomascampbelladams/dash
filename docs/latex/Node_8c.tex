@@ -1,0 +1,90 @@
+\hypertarget{Node_8c}{
+\section{Node.c File Reference}
+\label{Node_8c}\index{Node.c@{Node.c}}
+}
+{\ttfamily \#include \char`\"{}Node.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}buddySystem.h\char`\"{}}\par
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structnode}{NodePtr} \hyperlink{Node_8c_accb7b7cdcdc1dec000c2dac033ee8daf}{createNode} (\hyperlink{structjob}{JobPtr} data)
+\begin{DoxyCompactList}\small\item\em Initializes a NodePtr and stores a JobPtr in it. \item\end{DoxyCompactList}\item 
+void \hyperlink{Node_8c_aa97233352a8393503d76d13e26eef0b6}{printNode} (\hyperlink{structnode}{NodePtr} \hyperlink{structnode}{node})
+\begin{DoxyCompactList}\small\item\em Prints a string representation of the node to stdout. \item\end{DoxyCompactList}\item 
+int \hyperlink{Node_8c_aa82e31d0054a6eb4212a000a51d81f38}{isNodeNull} (\hyperlink{structnode}{NodePtr} n)
+\begin{DoxyCompactList}\small\item\em Determines if the NodePtr is null. \item\end{DoxyCompactList}\item 
+void \hyperlink{Node_8c_aa29d96ab6b082feab2194d24f2458d38}{freeNode} (\hyperlink{structnode}{NodePtr} \hyperlink{structnode}{node})
+\begin{DoxyCompactList}\small\item\em Deallocs the NodePtr and the JobPtr it contains. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{Node_8c_accb7b7cdcdc1dec000c2dac033ee8daf}{
+\index{Node.c@{Node.c}!createNode@{createNode}}
+\index{createNode@{createNode}!Node.c@{Node.c}}
+\subsubsection[{createNode}]{\setlength{\rightskip}{0pt plus 5cm}{\bf NodePtr} createNode (
+\begin{DoxyParamCaption}
+\item[{{\bf JobPtr}}]{ data}
+\end{DoxyParamCaption}
+)}}
+\label{Node_8c_accb7b7cdcdc1dec000c2dac033ee8daf}
+
+
+Initializes a NodePtr and stores a JobPtr in it. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em data}]JobPtr represented by the new NodePtr \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+New NodePtr 
+\end{DoxyReturn}
+\hypertarget{Node_8c_aa29d96ab6b082feab2194d24f2458d38}{
+\index{Node.c@{Node.c}!freeNode@{freeNode}}
+\index{freeNode@{freeNode}!Node.c@{Node.c}}
+\subsubsection[{freeNode}]{\setlength{\rightskip}{0pt plus 5cm}void freeNode (
+\begin{DoxyParamCaption}
+\item[{{\bf NodePtr}}]{ node}
+\end{DoxyParamCaption}
+)}}
+\label{Node_8c_aa29d96ab6b082feab2194d24f2458d38}
+
+
+Deallocs the NodePtr and the JobPtr it contains. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em node}]NodePtr to dealloc \end{DoxyParams}
+\hypertarget{Node_8c_aa82e31d0054a6eb4212a000a51d81f38}{
+\index{Node.c@{Node.c}!isNodeNull@{isNodeNull}}
+\index{isNodeNull@{isNodeNull}!Node.c@{Node.c}}
+\subsubsection[{isNodeNull}]{\setlength{\rightskip}{0pt plus 5cm}int isNodeNull (
+\begin{DoxyParamCaption}
+\item[{{\bf NodePtr}}]{ n}
+\end{DoxyParamCaption}
+)}}
+\label{Node_8c_aa82e31d0054a6eb4212a000a51d81f38}
+
+
+Determines if the NodePtr is null. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em n}]NodePtr to test. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+result of test. 
+\end{DoxyReturn}
+\hypertarget{Node_8c_aa97233352a8393503d76d13e26eef0b6}{
+\index{Node.c@{Node.c}!printNode@{printNode}}
+\index{printNode@{printNode}!Node.c@{Node.c}}
+\subsubsection[{printNode}]{\setlength{\rightskip}{0pt plus 5cm}void printNode (
+\begin{DoxyParamCaption}
+\item[{{\bf NodePtr}}]{ node}
+\end{DoxyParamCaption}
+)}}
+\label{Node_8c_aa97233352a8393503d76d13e26eef0b6}
+
+
+Prints a string representation of the node to stdout. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em node}]Node to represent as a string \end{DoxyParams}

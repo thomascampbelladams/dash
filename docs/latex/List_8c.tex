@@ -1,0 +1,336 @@
+\hypertarget{List_8c}{
+\section{List.c File Reference}
+\label{List_8c}\index{List.c@{List.c}}
+}
+{\ttfamily \#include $<$stdio.h$>$}\par
+{\ttfamily \#include $<$stdlib.h$>$}\par
+{\ttfamily \#include \char`\"{}List.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}buddySystem.h\char`\"{}}\par
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{structnode}{NodePtr} \hyperlink{List_8c_af1e890cd8018ecf5b34fbab980ff8731}{reverse} (\hyperlink{structnode}{NodePtr} L)
+\begin{DoxyCompactList}\small\item\em Reverses the NodePtr's prev and next links and returns it. \item\end{DoxyCompactList}\item 
+static void \hyperlink{List_8c_aca5e8a42c42799b89f735e2fac96bacc}{print} (\hyperlink{structnode}{NodePtr} \hyperlink{structnode}{node})
+\begin{DoxyCompactList}\small\item\em Prints out a string representation of NodePtr and all the other NodePtr's it is connected to. \item\end{DoxyCompactList}\item 
+\hyperlink{structlist}{ListPtr} \hyperlink{List_8c_a8e02312a82630572cbe6d0514f58b2ee}{createList} ()
+\begin{DoxyCompactList}\small\item\em Creates a ListPtr and returns it. \item\end{DoxyCompactList}\item 
+void \hyperlink{List_8c_ae84ae05d522c39df123f60bca2b27dea}{freeList} (\hyperlink{structlist}{ListPtr} L)
+\begin{DoxyCompactList}\small\item\em Deallocs a ListPtr and any nodes it contains. \item\end{DoxyCompactList}\item 
+int \hyperlink{List_8c_ab3d2a46b4fedd016c3a03c297b89d8f7}{getSize} (\hyperlink{structlist}{ListPtr} L)
+\begin{DoxyCompactList}\small\item\em Returns the size of the ListPtr. \item\end{DoxyCompactList}\item 
+\hyperlink{common_8h_a127a96e09108f503cca20256eaa4ddff}{Boolean} \hyperlink{List_8c_a43f64a19c9aafabbd572908151547fe2}{isEmpty} (\hyperlink{structlist}{ListPtr} L)
+\begin{DoxyCompactList}\small\item\em Tests the list to see if it is empty. \item\end{DoxyCompactList}\item 
+void \hyperlink{List_8c_a476cc4f9f3eac74de69922b337d3f5d4}{addAtFront} (\hyperlink{structlist}{ListPtr} \hyperlink{structlist}{list}, \hyperlink{structnode}{NodePtr} \hyperlink{structnode}{node})
+\begin{DoxyCompactList}\small\item\em Adds a node to the front of the list. \item\end{DoxyCompactList}\item 
+void \hyperlink{List_8c_a194ecb3333d63b8d9b65c9a1bc12e395}{addAtRear} (\hyperlink{structlist}{ListPtr} \hyperlink{structlist}{list}, \hyperlink{structnode}{NodePtr} \hyperlink{structnode}{node})
+\begin{DoxyCompactList}\small\item\em Adds a node to the rear of the list. \item\end{DoxyCompactList}\item 
+\hyperlink{structnode}{NodePtr} \hyperlink{List_8c_a21ea604b2c4b634c83152e4de532ca33}{removeFront} (\hyperlink{structlist}{ListPtr} \hyperlink{structlist}{list})
+\begin{DoxyCompactList}\small\item\em Removes the front most node and returns it. \item\end{DoxyCompactList}\item 
+\hyperlink{structnode}{NodePtr} \hyperlink{List_8c_a79b7613686651c0fdd9ba75859ab1cf4}{removeRear} (\hyperlink{structlist}{ListPtr} \hyperlink{structlist}{list})
+\begin{DoxyCompactList}\small\item\em Removes the rear most node and returns it. \item\end{DoxyCompactList}\item 
+\hyperlink{structnode}{NodePtr} \hyperlink{List_8c_a7759b3a50942a4d588c73757ce2e15bf}{removeNode} (\hyperlink{structlist}{ListPtr} \hyperlink{structlist}{list}, \hyperlink{structnode}{NodePtr} \hyperlink{structnode}{node})
+\begin{DoxyCompactList}\small\item\em Removes the node passed in and returns it. \item\end{DoxyCompactList}\item 
+\hyperlink{structnode}{NodePtr} \hyperlink{List_8c_a9992444a8664dbf38375456a2fd2beb0}{search} (\hyperlink{structlist}{ListPtr} \hyperlink{structlist}{list}, int key)
+\begin{DoxyCompactList}\small\item\em Searches for a node with a specific jobid and returns it. \item\end{DoxyCompactList}\item 
+\hyperlink{structnode}{NodePtr} \hyperlink{List_8c_a4abe044f69f46fc26e0b79d1dc4033e1}{searchOnRunning} (\hyperlink{structlist}{ListPtr} \hyperlink{structlist}{list}, int status)
+\begin{DoxyCompactList}\small\item\em Searches for a node with a specific running value and returns it. \item\end{DoxyCompactList}\item 
+\hyperlink{structnode}{NodePtr} \hyperlink{List_8c_a23ea3ef290a66559f5c8501fdc1c98d2}{searchOnJobNu} (\hyperlink{structlist}{ListPtr} \hyperlink{structlist}{list}, int number)
+\begin{DoxyCompactList}\small\item\em Searches for a node with a specific jobNu and returns it. \item\end{DoxyCompactList}\item 
+void \hyperlink{List_8c_a98ef2e3e4d692de272b451a11015fdad}{reverseList} (\hyperlink{structlist}{ListPtr} L)
+\begin{DoxyCompactList}\small\item\em Reverse's the list. \item\end{DoxyCompactList}\item 
+void \hyperlink{List_8c_a547d08e44a5f9e1e613aa3cee9f2e5c0}{printList} (\hyperlink{structlist}{ListPtr} L)
+\begin{DoxyCompactList}\small\item\em Prints a string representation of the ListPtr. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static const char \hyperlink{List_8c_a744589b90037ef1ac5f473102d3fb012}{sep} \mbox{[}$\,$\mbox{]} = \char`\"{}=========================================\char`\"{}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{List_8c_a476cc4f9f3eac74de69922b337d3f5d4}{
+\index{List.c@{List.c}!addAtFront@{addAtFront}}
+\index{addAtFront@{addAtFront}!List.c@{List.c}}
+\subsubsection[{addAtFront}]{\setlength{\rightskip}{0pt plus 5cm}void addAtFront (
+\begin{DoxyParamCaption}
+\item[{{\bf ListPtr}}]{ list, }
+\item[{{\bf NodePtr}}]{ node}
+\end{DoxyParamCaption}
+)}}
+\label{List_8c_a476cc4f9f3eac74de69922b337d3f5d4}
+
+
+Adds a node to the front of the list. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em list}]List to add node to. \item[{\em node}]Node to add to list. \end{DoxyParams}
+\hypertarget{List_8c_a194ecb3333d63b8d9b65c9a1bc12e395}{
+\index{List.c@{List.c}!addAtRear@{addAtRear}}
+\index{addAtRear@{addAtRear}!List.c@{List.c}}
+\subsubsection[{addAtRear}]{\setlength{\rightskip}{0pt plus 5cm}void addAtRear (
+\begin{DoxyParamCaption}
+\item[{{\bf ListPtr}}]{ list, }
+\item[{{\bf NodePtr}}]{ node}
+\end{DoxyParamCaption}
+)}}
+\label{List_8c_a194ecb3333d63b8d9b65c9a1bc12e395}
+
+
+Adds a node to the rear of the list. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em list}]List to add node to. \item[{\em node}]Node to add to list. \end{DoxyParams}
+\hypertarget{List_8c_a8e02312a82630572cbe6d0514f58b2ee}{
+\index{List.c@{List.c}!createList@{createList}}
+\index{createList@{createList}!List.c@{List.c}}
+\subsubsection[{createList}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ListPtr} createList (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{List_8c_a8e02312a82630572cbe6d0514f58b2ee}
+
+
+Creates a ListPtr and returns it. 
+
+\begin{DoxyReturn}{Returns}
+New ListPtr 
+\end{DoxyReturn}
+\hypertarget{List_8c_ae84ae05d522c39df123f60bca2b27dea}{
+\index{List.c@{List.c}!freeList@{freeList}}
+\index{freeList@{freeList}!List.c@{List.c}}
+\subsubsection[{freeList}]{\setlength{\rightskip}{0pt plus 5cm}void freeList (
+\begin{DoxyParamCaption}
+\item[{{\bf ListPtr}}]{ L}
+\end{DoxyParamCaption}
+)}}
+\label{List_8c_ae84ae05d522c39df123f60bca2b27dea}
+
+
+Deallocs a ListPtr and any nodes it contains. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em L}]ListPtr to Dealloc \end{DoxyParams}
+\hypertarget{List_8c_ab3d2a46b4fedd016c3a03c297b89d8f7}{
+\index{List.c@{List.c}!getSize@{getSize}}
+\index{getSize@{getSize}!List.c@{List.c}}
+\subsubsection[{getSize}]{\setlength{\rightskip}{0pt plus 5cm}int getSize (
+\begin{DoxyParamCaption}
+\item[{{\bf ListPtr}}]{ L}
+\end{DoxyParamCaption}
+)}}
+\label{List_8c_ab3d2a46b4fedd016c3a03c297b89d8f7}
+
+
+Returns the size of the ListPtr. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em L}]ListPtr to get size of. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Size of ListPtr. 
+\end{DoxyReturn}
+\hypertarget{List_8c_a43f64a19c9aafabbd572908151547fe2}{
+\index{List.c@{List.c}!isEmpty@{isEmpty}}
+\index{isEmpty@{isEmpty}!List.c@{List.c}}
+\subsubsection[{isEmpty}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Boolean} isEmpty (
+\begin{DoxyParamCaption}
+\item[{{\bf ListPtr}}]{ L}
+\end{DoxyParamCaption}
+)}}
+\label{List_8c_a43f64a19c9aafabbd572908151547fe2}
+
+
+Tests the list to see if it is empty. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em L}]ListPtr to test. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Result of test. 
+\end{DoxyReturn}
+\hypertarget{List_8c_aca5e8a42c42799b89f735e2fac96bacc}{
+\index{List.c@{List.c}!print@{print}}
+\index{print@{print}!List.c@{List.c}}
+\subsubsection[{print}]{\setlength{\rightskip}{0pt plus 5cm}static void print (
+\begin{DoxyParamCaption}
+\item[{{\bf NodePtr}}]{ node}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{List_8c_aca5e8a42c42799b89f735e2fac96bacc}
+
+
+Prints out a string representation of NodePtr and all the other NodePtr's it is connected to. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em node}]NodePtr to print. \end{DoxyParams}
+\hypertarget{List_8c_a547d08e44a5f9e1e613aa3cee9f2e5c0}{
+\index{List.c@{List.c}!printList@{printList}}
+\index{printList@{printList}!List.c@{List.c}}
+\subsubsection[{printList}]{\setlength{\rightskip}{0pt plus 5cm}void printList (
+\begin{DoxyParamCaption}
+\item[{{\bf ListPtr}}]{ L}
+\end{DoxyParamCaption}
+)}}
+\label{List_8c_a547d08e44a5f9e1e613aa3cee9f2e5c0}
+
+
+Prints a string representation of the ListPtr. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em L}]ListPtr to print \end{DoxyParams}
+\hypertarget{List_8c_a21ea604b2c4b634c83152e4de532ca33}{
+\index{List.c@{List.c}!removeFront@{removeFront}}
+\index{removeFront@{removeFront}!List.c@{List.c}}
+\subsubsection[{removeFront}]{\setlength{\rightskip}{0pt plus 5cm}{\bf NodePtr} removeFront (
+\begin{DoxyParamCaption}
+\item[{{\bf ListPtr}}]{ list}
+\end{DoxyParamCaption}
+)}}
+\label{List_8c_a21ea604b2c4b634c83152e4de532ca33}
+
+
+Removes the front most node and returns it. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em list}]ListPtr to get front most node from. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+NodePtr that was the front most node. 
+\end{DoxyReturn}
+\hypertarget{List_8c_a7759b3a50942a4d588c73757ce2e15bf}{
+\index{List.c@{List.c}!removeNode@{removeNode}}
+\index{removeNode@{removeNode}!List.c@{List.c}}
+\subsubsection[{removeNode}]{\setlength{\rightskip}{0pt plus 5cm}{\bf NodePtr} removeNode (
+\begin{DoxyParamCaption}
+\item[{{\bf ListPtr}}]{ list, }
+\item[{{\bf NodePtr}}]{ node}
+\end{DoxyParamCaption}
+)}}
+\label{List_8c_a7759b3a50942a4d588c73757ce2e15bf}
+
+
+Removes the node passed in and returns it. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em list}]ListPtr to remove the node from. \item[{\em node}]NodePtr to search for on the list. \item[{\em NodePtr}]removed from the list, or NULL if it was not found in the list. \end{DoxyParams}
+\hypertarget{List_8c_a79b7613686651c0fdd9ba75859ab1cf4}{
+\index{List.c@{List.c}!removeRear@{removeRear}}
+\index{removeRear@{removeRear}!List.c@{List.c}}
+\subsubsection[{removeRear}]{\setlength{\rightskip}{0pt plus 5cm}{\bf NodePtr} removeRear (
+\begin{DoxyParamCaption}
+\item[{{\bf ListPtr}}]{ list}
+\end{DoxyParamCaption}
+)}}
+\label{List_8c_a79b7613686651c0fdd9ba75859ab1cf4}
+
+
+Removes the rear most node and returns it. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em list}]ListPtr to get rear most node from. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+NodePtr that was the rear most node. 
+\end{DoxyReturn}
+\hypertarget{List_8c_af1e890cd8018ecf5b34fbab980ff8731}{
+\index{List.c@{List.c}!reverse@{reverse}}
+\index{reverse@{reverse}!List.c@{List.c}}
+\subsubsection[{reverse}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf NodePtr} reverse (
+\begin{DoxyParamCaption}
+\item[{{\bf NodePtr}}]{ L}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{List_8c_af1e890cd8018ecf5b34fbab980ff8731}
+
+
+Reverses the NodePtr's prev and next links and returns it. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em L}]NodePtr to reverse. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reversed NodePtr. 
+\end{DoxyReturn}
+\hypertarget{List_8c_a98ef2e3e4d692de272b451a11015fdad}{
+\index{List.c@{List.c}!reverseList@{reverseList}}
+\index{reverseList@{reverseList}!List.c@{List.c}}
+\subsubsection[{reverseList}]{\setlength{\rightskip}{0pt plus 5cm}void reverseList (
+\begin{DoxyParamCaption}
+\item[{{\bf ListPtr}}]{ L}
+\end{DoxyParamCaption}
+)}}
+\label{List_8c_a98ef2e3e4d692de272b451a11015fdad}
+
+
+Reverse's the list. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em L}]ListPtr to reverse. \end{DoxyParams}
+\hypertarget{List_8c_a9992444a8664dbf38375456a2fd2beb0}{
+\index{List.c@{List.c}!search@{search}}
+\index{search@{search}!List.c@{List.c}}
+\subsubsection[{search}]{\setlength{\rightskip}{0pt plus 5cm}{\bf NodePtr} search (
+\begin{DoxyParamCaption}
+\item[{{\bf ListPtr}}]{ list, }
+\item[{int}]{ key}
+\end{DoxyParamCaption}
+)}}
+\label{List_8c_a9992444a8664dbf38375456a2fd2beb0}
+
+
+Searches for a node with a specific jobid and returns it. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em list}]ListPtr to search. \item[{\em key}]jobid to search for. \item[{\em NodePtr}]found in the list, or NULL if it was not found in the list. \end{DoxyParams}
+\hypertarget{List_8c_a23ea3ef290a66559f5c8501fdc1c98d2}{
+\index{List.c@{List.c}!searchOnJobNu@{searchOnJobNu}}
+\index{searchOnJobNu@{searchOnJobNu}!List.c@{List.c}}
+\subsubsection[{searchOnJobNu}]{\setlength{\rightskip}{0pt plus 5cm}{\bf NodePtr} searchOnJobNu (
+\begin{DoxyParamCaption}
+\item[{{\bf ListPtr}}]{ list, }
+\item[{int}]{ number}
+\end{DoxyParamCaption}
+)}}
+\label{List_8c_a23ea3ef290a66559f5c8501fdc1c98d2}
+
+
+Searches for a node with a specific jobNu and returns it. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em list}]ListPtr to search. \item[{\em key}]jobNu to search for. \item[{\em NodePtr}]found in the list, or NULL if it was not found in the list. \end{DoxyParams}
+\hypertarget{List_8c_a4abe044f69f46fc26e0b79d1dc4033e1}{
+\index{List.c@{List.c}!searchOnRunning@{searchOnRunning}}
+\index{searchOnRunning@{searchOnRunning}!List.c@{List.c}}
+\subsubsection[{searchOnRunning}]{\setlength{\rightskip}{0pt plus 5cm}{\bf NodePtr} searchOnRunning (
+\begin{DoxyParamCaption}
+\item[{{\bf ListPtr}}]{ list, }
+\item[{int}]{ status}
+\end{DoxyParamCaption}
+)}}
+\label{List_8c_a4abe044f69f46fc26e0b79d1dc4033e1}
+
+
+Searches for a node with a specific running value and returns it. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em list}]ListPtr to search. \item[{\em key}]running value to search for. \item[{\em NodePtr}]found in the list, or NULL if it was not found in the list. \end{DoxyParams}
+
+
+\subsection{Variable Documentation}
+\hypertarget{List_8c_a744589b90037ef1ac5f473102d3fb012}{
+\index{List.c@{List.c}!sep@{sep}}
+\index{sep@{sep}!List.c@{List.c}}
+\subsubsection[{sep}]{\setlength{\rightskip}{0pt plus 5cm}const char {\bf sep}\mbox{[}$\,$\mbox{]} = \char`\"{}=========================================\char`\"{}\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{List_8c_a744589b90037ef1ac5f473102d3fb012}

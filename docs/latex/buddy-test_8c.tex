@@ -1,0 +1,113 @@
+\hypertarget{buddy-test_8c}{
+\section{buddy-\/test.c File Reference}
+\label{buddy-test_8c}\index{buddy-\/test.c@{buddy-\/test.c}}
+}
+{\ttfamily \#include $<$stdio.h$>$}\par
+{\ttfamily \#include $<$stdlib.h$>$}\par
+{\ttfamily \#include \char`\"{}buddySystem.h\char`\"{}}\par
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structelement}{element}
+\end{DoxyCompactItemize}
+\subsection*{Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{buddy-test_8c_a79dc55ceff5acfd97aabd01db632a266}{MAX\_\-REQUEST}~4096
+\item 
+\#define \hyperlink{buddy-test_8c_a1b40ceb455086d9cdb68ed3d3bf2775f}{MAX\_\-ITEMS}~100
+\item 
+\#define \hyperlink{buddy-test_8c_a404d5107b2cc06d2e236b7320df1fa7d}{SILENT}~0
+\item 
+\#define \hyperlink{buddy-test_8c_ae70000f46dd84121830128e1701090ee}{TERSE}~1
+\item 
+\#define \hyperlink{buddy-test_8c_a42f8c497a1968074f38bf5055c650dca}{VERBOSE}~2
+\item 
+\#define \hyperlink{buddy-test_8c_aa68dfac40a260bde9272c46bdf82613a}{INTERACTIVE}~3
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{buddy-test_8c_aef4bcb90051645261dc7ccb937ca0693}{simpleFreeTest} ()
+\item 
+void \hyperlink{buddy-test_8c_a3b7d9bb211264a0f07a2083546c4748b}{simpleAllocationTest} ()
+\item 
+int \hyperlink{buddy-test_8c_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{buddy-test_8c_a1bdcfae3209cbd96db35a2ae356fa15e}{verbosity} = TERSE
+\end{DoxyCompactItemize}
+
+
+\subsection{Define Documentation}
+\hypertarget{buddy-test_8c_aa68dfac40a260bde9272c46bdf82613a}{
+\index{buddy-\/test.c@{buddy-\/test.c}!INTERACTIVE@{INTERACTIVE}}
+\index{INTERACTIVE@{INTERACTIVE}!buddy-test.c@{buddy-\/test.c}}
+\subsubsection[{INTERACTIVE}]{\setlength{\rightskip}{0pt plus 5cm}\#define INTERACTIVE~3}}
+\label{buddy-test_8c_aa68dfac40a260bde9272c46bdf82613a}
+\hypertarget{buddy-test_8c_a1b40ceb455086d9cdb68ed3d3bf2775f}{
+\index{buddy-\/test.c@{buddy-\/test.c}!MAX\_\-ITEMS@{MAX\_\-ITEMS}}
+\index{MAX\_\-ITEMS@{MAX\_\-ITEMS}!buddy-test.c@{buddy-\/test.c}}
+\subsubsection[{MAX\_\-ITEMS}]{\setlength{\rightskip}{0pt plus 5cm}\#define MAX\_\-ITEMS~100}}
+\label{buddy-test_8c_a1b40ceb455086d9cdb68ed3d3bf2775f}
+\hypertarget{buddy-test_8c_a79dc55ceff5acfd97aabd01db632a266}{
+\index{buddy-\/test.c@{buddy-\/test.c}!MAX\_\-REQUEST@{MAX\_\-REQUEST}}
+\index{MAX\_\-REQUEST@{MAX\_\-REQUEST}!buddy-test.c@{buddy-\/test.c}}
+\subsubsection[{MAX\_\-REQUEST}]{\setlength{\rightskip}{0pt plus 5cm}\#define MAX\_\-REQUEST~4096}}
+\label{buddy-test_8c_a79dc55ceff5acfd97aabd01db632a266}
+\hypertarget{buddy-test_8c_a404d5107b2cc06d2e236b7320df1fa7d}{
+\index{buddy-\/test.c@{buddy-\/test.c}!SILENT@{SILENT}}
+\index{SILENT@{SILENT}!buddy-test.c@{buddy-\/test.c}}
+\subsubsection[{SILENT}]{\setlength{\rightskip}{0pt plus 5cm}\#define SILENT~0}}
+\label{buddy-test_8c_a404d5107b2cc06d2e236b7320df1fa7d}
+\hypertarget{buddy-test_8c_ae70000f46dd84121830128e1701090ee}{
+\index{buddy-\/test.c@{buddy-\/test.c}!TERSE@{TERSE}}
+\index{TERSE@{TERSE}!buddy-test.c@{buddy-\/test.c}}
+\subsubsection[{TERSE}]{\setlength{\rightskip}{0pt plus 5cm}\#define TERSE~1}}
+\label{buddy-test_8c_ae70000f46dd84121830128e1701090ee}
+\hypertarget{buddy-test_8c_a42f8c497a1968074f38bf5055c650dca}{
+\index{buddy-\/test.c@{buddy-\/test.c}!VERBOSE@{VERBOSE}}
+\index{VERBOSE@{VERBOSE}!buddy-test.c@{buddy-\/test.c}}
+\subsubsection[{VERBOSE}]{\setlength{\rightskip}{0pt plus 5cm}\#define VERBOSE~2}}
+\label{buddy-test_8c_a42f8c497a1968074f38bf5055c650dca}
+
+
+\subsection{Function Documentation}
+\hypertarget{buddy-test_8c_a0ddf1224851353fc92bfbff6f499fa97}{
+\index{buddy-\/test.c@{buddy-\/test.c}!main@{main}}
+\index{main@{main}!buddy-test.c@{buddy-\/test.c}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{int}]{ argc, }
+\item[{char $\ast$}]{ argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}
+\label{buddy-test_8c_a0ddf1224851353fc92bfbff6f499fa97}
+\hypertarget{buddy-test_8c_a3b7d9bb211264a0f07a2083546c4748b}{
+\index{buddy-\/test.c@{buddy-\/test.c}!simpleAllocationTest@{simpleAllocationTest}}
+\index{simpleAllocationTest@{simpleAllocationTest}!buddy-test.c@{buddy-\/test.c}}
+\subsubsection[{simpleAllocationTest}]{\setlength{\rightskip}{0pt plus 5cm}void simpleAllocationTest (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{buddy-test_8c_a3b7d9bb211264a0f07a2083546c4748b}
+\hypertarget{buddy-test_8c_aef4bcb90051645261dc7ccb937ca0693}{
+\index{buddy-\/test.c@{buddy-\/test.c}!simpleFreeTest@{simpleFreeTest}}
+\index{simpleFreeTest@{simpleFreeTest}!buddy-test.c@{buddy-\/test.c}}
+\subsubsection[{simpleFreeTest}]{\setlength{\rightskip}{0pt plus 5cm}void simpleFreeTest (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{buddy-test_8c_aef4bcb90051645261dc7ccb937ca0693}
+
+
+\subsection{Variable Documentation}
+\hypertarget{buddy-test_8c_a1bdcfae3209cbd96db35a2ae356fa15e}{
+\index{buddy-\/test.c@{buddy-\/test.c}!verbosity@{verbosity}}
+\index{verbosity@{verbosity}!buddy-test.c@{buddy-\/test.c}}
+\subsubsection[{verbosity}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf verbosity} = TERSE}}
+\label{buddy-test_8c_a1bdcfae3209cbd96db35a2ae356fa15e}

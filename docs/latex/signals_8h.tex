@@ -1,0 +1,190 @@
+\hypertarget{signals_8h}{
+\section{signals.h File Reference}
+\label{signals_8h}\index{signals.h@{signals.h}}
+}
+{\ttfamily \#include $<$signal.h$>$}\par
+{\ttfamily \#include $<$sys/types.h$>$}\par
+{\ttfamily \#include $<$sys/wait.h$>$}\par
+{\ttfamily \#include $<$unistd.h$>$}\par
+{\ttfamily \#include \char`\"{}ourhdr.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}Job.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}Node.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}List.h\char`\"{}}\par
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{signals_8h_acb3b9df92b2c192bedb35869d5bae657}{initSignals} (void($\ast$jb)(void))
+\begin{DoxyCompactList}\small\item\em Initalizes the signals for the signals sent by ctrl-\/c and ctrl-\/z to probably manage jobs and/or to simply ignore the signal to keep the dash from exiting on those signals. \item\end{DoxyCompactList}\item 
+void \hyperlink{signals_8h_a1cab494579d3c8a8e7e53e5d5e422585}{setNode} (\hyperlink{structnode}{NodePtr} \hyperlink{structnode}{node})
+\begin{DoxyCompactList}\small\item\em Sets the node to the nod passed in. \item\end{DoxyCompactList}\item 
+void \hyperlink{signals_8h_af994317edb8d1100115ca467fc086518}{markAsStopped} (\hyperlink{structlist}{ListPtr} l, \hyperlink{structnode}{NodePtr} n)
+\begin{DoxyCompactList}\small\item\em Marks a node as stopped by a signal, informs the user it was stopped, and adds it to a job list in the front. \item\end{DoxyCompactList}\item 
+void \hyperlink{signals_8h_ac466c169a41f198fe899ec2c545b13cd}{markAsKilled} (\hyperlink{structnode}{NodePtr} n)
+\begin{DoxyCompactList}\small\item\em Marks a node as killed by a signal and informas the user it was killed. \item\end{DoxyCompactList}\item 
+void \hyperlink{signals_8h_aabf5d1741ca21d9b6f3adf90d0056bb5}{ignoreSignals} ()
+\begin{DoxyCompactList}\small\item\em Sets the interrupt and stop signals to be ignored This is used to ensure that background processes do not receive signals meant for the foreground, and that the shell does not send multiple signals to multiple children. \item\end{DoxyCompactList}\item 
+void \hyperlink{signals_8h_ad6d128d04996f73d41028d4110ec6777}{restoreSignals} ()
+\begin{DoxyCompactList}\small\item\em Reassigns the interrupt and stop signals to the functions in this file. \item\end{DoxyCompactList}\item 
+void \hyperlink{signals_8h_a35e90bf0317fbaac975c3f9140a28e92}{continueJobInForeground} (\hyperlink{structnode}{NodePtr} nodee, \hyperlink{structlist}{ListPtr} \hyperlink{dash_8c_ac65771ff99d366ff3015fa760907d9d7}{jobList})
+\begin{DoxyCompactList}\small\item\em Continues a job in the foreground of the dash. \item\end{DoxyCompactList}\item 
+void \hyperlink{signals_8h_a7466feafd6b5bc5c38f44eaea43fd4e6}{restoreSignalsAndDetermineStatus} (int status, \hyperlink{structlist}{ListPtr} \hyperlink{dash_8c_ac65771ff99d366ff3015fa760907d9d7}{jobList}, \hyperlink{structnode}{NodePtr} n)
+\begin{DoxyCompactList}\small\item\em Resubscribes the interrupt and stop signals to the functions in this file, and marks jubs as stopped or killed depending on their status. \item\end{DoxyCompactList}\item 
+void \hyperlink{signals_8h_a96b8ec43820e137f1e52a994be0c42ad}{continueJobInBackground} (\hyperlink{structnode}{NodePtr} nodee, \hyperlink{structlist}{ListPtr} \hyperlink{dash_8c_ac65771ff99d366ff3015fa760907d9d7}{jobList})
+\begin{DoxyCompactList}\small\item\em Continues a job in the background of the dash and adds it the front of a job list. \item\end{DoxyCompactList}\item 
+void \hyperlink{signals_8h_a7f8118293903dcc88b262f70c745fe44}{setPrompt} (char $\ast$prompt)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{signals_8h_a96b8ec43820e137f1e52a994be0c42ad}{
+\index{signals.h@{signals.h}!continueJobInBackground@{continueJobInBackground}}
+\index{continueJobInBackground@{continueJobInBackground}!signals.h@{signals.h}}
+\subsubsection[{continueJobInBackground}]{\setlength{\rightskip}{0pt plus 5cm}void continueJobInBackground (
+\begin{DoxyParamCaption}
+\item[{{\bf NodePtr}}]{ nodee, }
+\item[{{\bf ListPtr}}]{ jobList}
+\end{DoxyParamCaption}
+)}}
+\label{signals_8h_a96b8ec43820e137f1e52a994be0c42ad}
+
+
+Continues a job in the background of the dash and adds it the front of a job list. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em nodee}]Node that contains the job to continue \item[{\em jobList}]Job List that contains the list of jobs currently managed by the dash \end{DoxyParams}
+\hypertarget{signals_8h_a35e90bf0317fbaac975c3f9140a28e92}{
+\index{signals.h@{signals.h}!continueJobInForeground@{continueJobInForeground}}
+\index{continueJobInForeground@{continueJobInForeground}!signals.h@{signals.h}}
+\subsubsection[{continueJobInForeground}]{\setlength{\rightskip}{0pt plus 5cm}void continueJobInForeground (
+\begin{DoxyParamCaption}
+\item[{{\bf NodePtr}}]{ nodee, }
+\item[{{\bf ListPtr}}]{ jobList}
+\end{DoxyParamCaption}
+)}}
+\label{signals_8h_a35e90bf0317fbaac975c3f9140a28e92}
+
+
+Continues a job in the foreground of the dash. 
+
+Note: This does not use a jump to return to the main function as undefined behavior was observed from the program when it utilized it. 
+\begin{DoxyParams}{Parameters}
+\item[{\em nodee}]Node that contains the job to continue \item[{\em jobList}]Job List that contains the list of jobs currently managed by the dash \end{DoxyParams}
+\hypertarget{signals_8h_aabf5d1741ca21d9b6f3adf90d0056bb5}{
+\index{signals.h@{signals.h}!ignoreSignals@{ignoreSignals}}
+\index{ignoreSignals@{ignoreSignals}!signals.h@{signals.h}}
+\subsubsection[{ignoreSignals}]{\setlength{\rightskip}{0pt plus 5cm}void ignoreSignals (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{signals_8h_aabf5d1741ca21d9b6f3adf90d0056bb5}
+
+
+Sets the interrupt and stop signals to be ignored This is used to ensure that background processes do not receive signals meant for the foreground, and that the shell does not send multiple signals to multiple children. 
+
+\hypertarget{signals_8h_acb3b9df92b2c192bedb35869d5bae657}{
+\index{signals.h@{signals.h}!initSignals@{initSignals}}
+\index{initSignals@{initSignals}!signals.h@{signals.h}}
+\subsubsection[{initSignals}]{\setlength{\rightskip}{0pt plus 5cm}void initSignals (
+\begin{DoxyParamCaption}
+\item[{void($\ast$)(void)}]{ jb}
+\end{DoxyParamCaption}
+)}}
+\label{signals_8h_acb3b9df92b2c192bedb35869d5bae657}
+
+
+Initalizes the signals for the signals sent by ctrl-\/c and ctrl-\/z to probably manage jobs and/or to simply ignore the signal to keep the dash from exiting on those signals. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em jb}]Function pointer to use to jump back to a specific point in the main function loop \end{DoxyParams}
+\hypertarget{signals_8h_ac466c169a41f198fe899ec2c545b13cd}{
+\index{signals.h@{signals.h}!markAsKilled@{markAsKilled}}
+\index{markAsKilled@{markAsKilled}!signals.h@{signals.h}}
+\subsubsection[{markAsKilled}]{\setlength{\rightskip}{0pt plus 5cm}void markAsKilled (
+\begin{DoxyParamCaption}
+\item[{{\bf NodePtr}}]{ n}
+\end{DoxyParamCaption}
+)}}
+\label{signals_8h_ac466c169a41f198fe899ec2c545b13cd}
+
+
+Marks a node as killed by a signal and informas the user it was killed. 
+
+Note: This does not use a jump to return to the main function as undefined behavior was observed from the program when it utilized it. 
+\begin{DoxyParams}{Parameters}
+\item[{\em n}]NodePtr that contains the job that received the interrupt signal \end{DoxyParams}
+\hypertarget{signals_8h_af994317edb8d1100115ca467fc086518}{
+\index{signals.h@{signals.h}!markAsStopped@{markAsStopped}}
+\index{markAsStopped@{markAsStopped}!signals.h@{signals.h}}
+\subsubsection[{markAsStopped}]{\setlength{\rightskip}{0pt plus 5cm}void markAsStopped (
+\begin{DoxyParamCaption}
+\item[{{\bf ListPtr}}]{ l, }
+\item[{{\bf NodePtr}}]{ n}
+\end{DoxyParamCaption}
+)}}
+\label{signals_8h_af994317edb8d1100115ca467fc086518}
+
+
+Marks a node as stopped by a signal, informs the user it was stopped, and adds it to a job list in the front. 
+
+Note: This does not use a jump to return to the main function as undefined behavior was observed from the program when it utilized it. 
+\begin{DoxyParams}{Parameters}
+\item[{\em l}]ListPtr to add the node to \item[{\em n}]NodePtr that contains the job that received the stop signal that will be added to the list \end{DoxyParams}
+\hypertarget{signals_8h_ad6d128d04996f73d41028d4110ec6777}{
+\index{signals.h@{signals.h}!restoreSignals@{restoreSignals}}
+\index{restoreSignals@{restoreSignals}!signals.h@{signals.h}}
+\subsubsection[{restoreSignals}]{\setlength{\rightskip}{0pt plus 5cm}void restoreSignals (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{signals_8h_ad6d128d04996f73d41028d4110ec6777}
+
+
+Reassigns the interrupt and stop signals to the functions in this file. 
+
+\hypertarget{signals_8h_a7466feafd6b5bc5c38f44eaea43fd4e6}{
+\index{signals.h@{signals.h}!restoreSignalsAndDetermineStatus@{restoreSignalsAndDetermineStatus}}
+\index{restoreSignalsAndDetermineStatus@{restoreSignalsAndDetermineStatus}!signals.h@{signals.h}}
+\subsubsection[{restoreSignalsAndDetermineStatus}]{\setlength{\rightskip}{0pt plus 5cm}void restoreSignalsAndDetermineStatus (
+\begin{DoxyParamCaption}
+\item[{int}]{ status, }
+\item[{{\bf ListPtr}}]{ jobList, }
+\item[{{\bf NodePtr}}]{ n}
+\end{DoxyParamCaption}
+)}}
+\label{signals_8h_a7466feafd6b5bc5c38f44eaea43fd4e6}
+
+
+Resubscribes the interrupt and stop signals to the functions in this file, and marks jubs as stopped or killed depending on their status. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em status}]Status of the child process that exited \item[{\em jobList}]List of jobs managed by the dash \item[{\em n}]NodePtr that contains the job that exited \end{DoxyParams}
+\hypertarget{signals_8h_a1cab494579d3c8a8e7e53e5d5e422585}{
+\index{signals.h@{signals.h}!setNode@{setNode}}
+\index{setNode@{setNode}!signals.h@{signals.h}}
+\subsubsection[{setNode}]{\setlength{\rightskip}{0pt plus 5cm}void setNode (
+\begin{DoxyParamCaption}
+\item[{{\bf NodePtr}}]{ nodee}
+\end{DoxyParamCaption}
+)}}
+\label{signals_8h_a1cab494579d3c8a8e7e53e5d5e422585}
+
+
+Sets the node to the nod passed in. 
+
+Used for references in this file. 
+\begin{DoxyParams}{Parameters}
+\item[{\em nodee}]Node to set. \end{DoxyParams}
+\hypertarget{signals_8h_a7f8118293903dcc88b262f70c745fe44}{
+\index{signals.h@{signals.h}!setPrompt@{setPrompt}}
+\index{setPrompt@{setPrompt}!signals.h@{signals.h}}
+\subsubsection[{setPrompt}]{\setlength{\rightskip}{0pt plus 5cm}void setPrompt (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{ prompt}
+\end{DoxyParamCaption}
+)}}
+\label{signals_8h_a7f8118293903dcc88b262f70c745fe44}

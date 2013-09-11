@@ -1,0 +1,35 @@
+\hypertarget{command_8h}{
+\section{command.h File Reference}
+\label{command_8h}\index{command.h@{command.h}}
+}
+{\ttfamily \#include $<$string.h$>$}\par
+{\ttfamily \#include $<$sys/types.h$>$}\par
+{\ttfamily \#include $<$pwd.h$>$}\par
+{\ttfamily \#include $<$unistd.h$>$}\par
+{\ttfamily \#include \char`\"{}ourhdr.h\char`\"{}}\par
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{command_8h_a551e0f27467e2aca9ab04a6e71f5494e}{getArgument} (char $\ast$args\mbox{[}$\,$\mbox{]}, char $\ast$buf, int $\ast$count)
+\begin{DoxyCompactList}\small\item\em Parses a string buffer for the commands and it's arguments and places them in an array of strings. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{command_8h_a551e0f27467e2aca9ab04a6e71f5494e}{
+\index{command.h@{command.h}!getArgument@{getArgument}}
+\index{getArgument@{getArgument}!command.h@{command.h}}
+\subsubsection[{getArgument}]{\setlength{\rightskip}{0pt plus 5cm}void getArgument (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{ commands\mbox{[}$\,$\mbox{]}, }
+\item[{char $\ast$}]{ buf, }
+\item[{int $\ast$}]{ count}
+\end{DoxyParamCaption}
+)}}
+\label{command_8h_a551e0f27467e2aca9ab04a6e71f5494e}
+
+
+Parses a string buffer for the commands and it's arguments and places them in an array of strings. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em commands}]Array of strings to place the parsed command and arguments into. \item[{\em buf}]String to parse \item[{\em count}]Pointer to an int to store the count of arguments placed into the string array. \end{DoxyParams}

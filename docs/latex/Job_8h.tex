@@ -1,0 +1,267 @@
+\hypertarget{Job_8h}{
+\section{Job.h File Reference}
+\label{Job_8h}\index{Job.h@{Job.h}}
+}
+{\ttfamily \#include $<$stdio.h$>$}\par
+{\ttfamily \#include $<$stdlib.h$>$}\par
+{\ttfamily \#include \char`\"{}common.h\char`\"{}}\par
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structjob}{job}
+\begin{DoxyCompactList}\small\item\em A structure to represent jobs in a list. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{Job_8h_a1653a0144cd23cc1933abae261151780}{MAXPID\_\-DIGITS}~20
+\item 
+\#define \hyperlink{Job_8h_a6fb7181d994ee98e735494be55809708}{RUNNING}~1
+\item 
+\#define \hyperlink{Job_8h_abe6b865c045f3e7c6892ef4f15ff5779}{DONE}~0
+\item 
+\#define \hyperlink{Job_8h_ae888d76ec9e058aa47eeaaa7917a470d}{STOPPED}~2
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structjob}{job} \hyperlink{Job_8h_a4150e22449797dfc130512f171768a2b}{Job}
+\begin{DoxyCompactList}\small\item\em Alias for a Job Struct. \item\end{DoxyCompactList}\item 
+typedef struct \hyperlink{structjob}{job} $\ast$ \hyperlink{Job_8h_a9b45aca8d14f792be2c663f224868a0f}{JobPtr}
+\begin{DoxyCompactList}\small\item\em Alias for a pointer to a Job Struct. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structjob}{JobPtr} \hyperlink{Job_8h_a98e15c6ffb14bc82eeff5e973f58e13b}{createJob} (int, char $\ast$, int)
+\begin{DoxyCompactList}\small\item\em Creates a new JobPtr and returns it. \item\end{DoxyCompactList}\item 
+void \hyperlink{Job_8h_aa163165827cea161a3cd128b518ac15d}{freeJob} (\hyperlink{structjob}{JobPtr} \hyperlink{structjob}{job})
+\begin{DoxyCompactList}\small\item\em Deallocs a job. \item\end{DoxyCompactList}\item 
+char $\ast$ \hyperlink{Job_8h_a2c08fd0e0a7dca6f361d3db19f73923f}{toString} (\hyperlink{structjob}{JobPtr})
+\begin{DoxyCompactList}\small\item\em Prints out a string representation of the JobPtr. \item\end{DoxyCompactList}\item 
+int \hyperlink{Job_8h_a4a06c6b08f4990afe44c2465dedc54e2}{isJobNull} (\hyperlink{structjob}{JobPtr} \hyperlink{structjob}{job})
+\begin{DoxyCompactList}\small\item\em Tests the JobPtr to see if it is NULL. \item\end{DoxyCompactList}\item 
+int \hyperlink{Job_8h_a5fd463ff01d15adf5c5dff4e1c08690a}{isJobRunning} (\hyperlink{structjob}{JobPtr} \hyperlink{structjob}{job})
+\begin{DoxyCompactList}\small\item\em Tests the JobPtr to see if it is running. \item\end{DoxyCompactList}\item 
+int \hyperlink{Job_8h_a0315bfde550151737110f28a468b7c50}{isJobInBackground} (\hyperlink{structjob}{JobPtr} \hyperlink{structjob}{job})
+\begin{DoxyCompactList}\small\item\em Tests the JobPtr to see if it is in the background. \item\end{DoxyCompactList}\item 
+int \hyperlink{Job_8h_a7c8133d1843cc15c401770caef67360b}{isJobStopped} (\hyperlink{structjob}{JobPtr} \hyperlink{structjob}{job})
+\begin{DoxyCompactList}\small\item\em Tests the JobPtr to see if it is stopped. \item\end{DoxyCompactList}\item 
+int \hyperlink{Job_8h_afa0d46fca3532cdf6e5e49545b65ff89}{isJobDone} (\hyperlink{structjob}{JobPtr} \hyperlink{structjob}{job})
+\begin{DoxyCompactList}\small\item\em Tests the JobPtr to see if it is done. \item\end{DoxyCompactList}\item 
+void \hyperlink{Job_8h_aa2358accd2fadb3f8cf790124aed90c1}{freeArguments} (int count, char $\ast$$\ast$args, char $\ast$bufCopy)
+\begin{DoxyCompactList}\small\item\em Frees all the arguments used to run a job. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Define Documentation}
+\hypertarget{Job_8h_abe6b865c045f3e7c6892ef4f15ff5779}{
+\index{Job.h@{Job.h}!DONE@{DONE}}
+\index{DONE@{DONE}!Job.h@{Job.h}}
+\subsubsection[{DONE}]{\setlength{\rightskip}{0pt plus 5cm}\#define DONE~0}}
+\label{Job_8h_abe6b865c045f3e7c6892ef4f15ff5779}
+\hypertarget{Job_8h_a1653a0144cd23cc1933abae261151780}{
+\index{Job.h@{Job.h}!MAXPID\_\-DIGITS@{MAXPID\_\-DIGITS}}
+\index{MAXPID\_\-DIGITS@{MAXPID\_\-DIGITS}!Job.h@{Job.h}}
+\subsubsection[{MAXPID\_\-DIGITS}]{\setlength{\rightskip}{0pt plus 5cm}\#define MAXPID\_\-DIGITS~20}}
+\label{Job_8h_a1653a0144cd23cc1933abae261151780}
+\hypertarget{Job_8h_a6fb7181d994ee98e735494be55809708}{
+\index{Job.h@{Job.h}!RUNNING@{RUNNING}}
+\index{RUNNING@{RUNNING}!Job.h@{Job.h}}
+\subsubsection[{RUNNING}]{\setlength{\rightskip}{0pt plus 5cm}\#define RUNNING~1}}
+\label{Job_8h_a6fb7181d994ee98e735494be55809708}
+\hypertarget{Job_8h_ae888d76ec9e058aa47eeaaa7917a470d}{
+\index{Job.h@{Job.h}!STOPPED@{STOPPED}}
+\index{STOPPED@{STOPPED}!Job.h@{Job.h}}
+\subsubsection[{STOPPED}]{\setlength{\rightskip}{0pt plus 5cm}\#define STOPPED~2}}
+\label{Job_8h_ae888d76ec9e058aa47eeaaa7917a470d}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{Job_8h_a4150e22449797dfc130512f171768a2b}{
+\index{Job.h@{Job.h}!Job@{Job}}
+\index{Job@{Job}!Job.h@{Job.h}}
+\subsubsection[{Job}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf job} {\bf Job}}}
+\label{Job_8h_a4150e22449797dfc130512f171768a2b}
+
+
+Alias for a Job Struct. 
+
+\hypertarget{Job_8h_a9b45aca8d14f792be2c663f224868a0f}{
+\index{Job.h@{Job.h}!JobPtr@{JobPtr}}
+\index{JobPtr@{JobPtr}!Job.h@{Job.h}}
+\subsubsection[{JobPtr}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf job}$\ast$ {\bf JobPtr}}}
+\label{Job_8h_a9b45aca8d14f792be2c663f224868a0f}
+
+
+Alias for a pointer to a Job Struct. 
+
+
+
+\subsection{Function Documentation}
+\hypertarget{Job_8h_a98e15c6ffb14bc82eeff5e973f58e13b}{
+\index{Job.h@{Job.h}!createJob@{createJob}}
+\index{createJob@{createJob}!Job.h@{Job.h}}
+\subsubsection[{createJob}]{\setlength{\rightskip}{0pt plus 5cm}{\bf JobPtr} createJob (
+\begin{DoxyParamCaption}
+\item[{int}]{ jobid, }
+\item[{char $\ast$}]{ command, }
+\item[{int}]{ jobnu}
+\end{DoxyParamCaption}
+)}}
+\label{Job_8h_a98e15c6ffb14bc82eeff5e973f58e13b}
+
+
+Creates a new JobPtr and returns it. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em jobid}]PID for the new job. \item[{\em command}]Command represented by the job. \item[{\em jobnu}]Number for the new job. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+New JobPtr 
+\end{DoxyReturn}
+\hypertarget{Job_8h_aa2358accd2fadb3f8cf790124aed90c1}{
+\index{Job.h@{Job.h}!freeArguments@{freeArguments}}
+\index{freeArguments@{freeArguments}!Job.h@{Job.h}}
+\subsubsection[{freeArguments}]{\setlength{\rightskip}{0pt plus 5cm}void freeArguments (
+\begin{DoxyParamCaption}
+\item[{int}]{ count, }
+\item[{char $\ast$$\ast$}]{ args, }
+\item[{char $\ast$}]{ bufCopy}
+\end{DoxyParamCaption}
+)}}
+\label{Job_8h_aa2358accd2fadb3f8cf790124aed90c1}
+
+
+Frees all the arguments used to run a job. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em count}]Number of arguments to free \item[{\em args}]Array of strings to free \item[{\em bufCopy}]String Buffer to free. Optional. \end{DoxyParams}
+\hypertarget{Job_8h_aa163165827cea161a3cd128b518ac15d}{
+\index{Job.h@{Job.h}!freeJob@{freeJob}}
+\index{freeJob@{freeJob}!Job.h@{Job.h}}
+\subsubsection[{freeJob}]{\setlength{\rightskip}{0pt plus 5cm}void freeJob (
+\begin{DoxyParamCaption}
+\item[{{\bf JobPtr}}]{ job}
+\end{DoxyParamCaption}
+)}}
+\label{Job_8h_aa163165827cea161a3cd128b518ac15d}
+
+
+Deallocs a job. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em job}]JobPtr to dealloc \end{DoxyParams}
+\hypertarget{Job_8h_afa0d46fca3532cdf6e5e49545b65ff89}{
+\index{Job.h@{Job.h}!isJobDone@{isJobDone}}
+\index{isJobDone@{isJobDone}!Job.h@{Job.h}}
+\subsubsection[{isJobDone}]{\setlength{\rightskip}{0pt plus 5cm}int isJobDone (
+\begin{DoxyParamCaption}
+\item[{{\bf JobPtr}}]{ job}
+\end{DoxyParamCaption}
+)}}
+\label{Job_8h_afa0d46fca3532cdf6e5e49545b65ff89}
+
+
+Tests the JobPtr to see if it is done. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em job}]JobPtr to test \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Result of test 
+\end{DoxyReturn}
+\hypertarget{Job_8h_a0315bfde550151737110f28a468b7c50}{
+\index{Job.h@{Job.h}!isJobInBackground@{isJobInBackground}}
+\index{isJobInBackground@{isJobInBackground}!Job.h@{Job.h}}
+\subsubsection[{isJobInBackground}]{\setlength{\rightskip}{0pt plus 5cm}int isJobInBackground (
+\begin{DoxyParamCaption}
+\item[{{\bf JobPtr}}]{ job}
+\end{DoxyParamCaption}
+)}}
+\label{Job_8h_a0315bfde550151737110f28a468b7c50}
+
+
+Tests the JobPtr to see if it is in the background. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em job}]JobPtr to test \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Result of test 
+\end{DoxyReturn}
+\hypertarget{Job_8h_a4a06c6b08f4990afe44c2465dedc54e2}{
+\index{Job.h@{Job.h}!isJobNull@{isJobNull}}
+\index{isJobNull@{isJobNull}!Job.h@{Job.h}}
+\subsubsection[{isJobNull}]{\setlength{\rightskip}{0pt plus 5cm}int isJobNull (
+\begin{DoxyParamCaption}
+\item[{{\bf JobPtr}}]{ job}
+\end{DoxyParamCaption}
+)}}
+\label{Job_8h_a4a06c6b08f4990afe44c2465dedc54e2}
+
+
+Tests the JobPtr to see if it is NULL. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em job}]JobPtr to test \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Result of test 
+\end{DoxyReturn}
+\hypertarget{Job_8h_a5fd463ff01d15adf5c5dff4e1c08690a}{
+\index{Job.h@{Job.h}!isJobRunning@{isJobRunning}}
+\index{isJobRunning@{isJobRunning}!Job.h@{Job.h}}
+\subsubsection[{isJobRunning}]{\setlength{\rightskip}{0pt plus 5cm}int isJobRunning (
+\begin{DoxyParamCaption}
+\item[{{\bf JobPtr}}]{ job}
+\end{DoxyParamCaption}
+)}}
+\label{Job_8h_a5fd463ff01d15adf5c5dff4e1c08690a}
+
+
+Tests the JobPtr to see if it is running. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em job}]JobPtr to test \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Result of test 
+\end{DoxyReturn}
+\hypertarget{Job_8h_a7c8133d1843cc15c401770caef67360b}{
+\index{Job.h@{Job.h}!isJobStopped@{isJobStopped}}
+\index{isJobStopped@{isJobStopped}!Job.h@{Job.h}}
+\subsubsection[{isJobStopped}]{\setlength{\rightskip}{0pt plus 5cm}int isJobStopped (
+\begin{DoxyParamCaption}
+\item[{{\bf JobPtr}}]{ job}
+\end{DoxyParamCaption}
+)}}
+\label{Job_8h_a7c8133d1843cc15c401770caef67360b}
+
+
+Tests the JobPtr to see if it is stopped. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em job}]JobPtr to test \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Result of test 
+\end{DoxyReturn}
+\hypertarget{Job_8h_a2c08fd0e0a7dca6f361d3db19f73923f}{
+\index{Job.h@{Job.h}!toString@{toString}}
+\index{toString@{toString}!Job.h@{Job.h}}
+\subsubsection[{toString}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ toString (
+\begin{DoxyParamCaption}
+\item[{{\bf JobPtr}}]{ node}
+\end{DoxyParamCaption}
+)}}
+\label{Job_8h_a2c08fd0e0a7dca6f361d3db19f73923f}
+
+
+Prints out a string representation of the JobPtr. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em node}]JobPtr to print \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+String that represents the JobPtr 
+\end{DoxyReturn}

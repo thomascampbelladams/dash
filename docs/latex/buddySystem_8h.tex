@@ -1,0 +1,171 @@
+\hypertarget{buddySystem_8h}{
+\section{buddySystem.h File Reference}
+\label{buddySystem_8h}\index{buddySystem.h@{buddySystem.h}}
+}
+{\ttfamily \#include $<$unistd.h$>$}\par
+{\ttfamily \#include $<$string.h$>$}\par
+{\ttfamily \#include $<$stdio.h$>$}\par
+{\ttfamily \#include $<$errno.h$>$}\par
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structblock}{block}
+\end{DoxyCompactItemize}
+\subsection*{Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{buddySystem_8h_a0592dba56693fad79136250c11e5a7fe}{MAX\_\-SIZE}~67108864
+\item 
+\#define \hyperlink{buddySystem_8h_a40af4217190d59d7145e58a278f9f87d}{MAX\_\-ARRAY\_\-SIZE}~26
+\item 
+\#define \hyperlink{buddySystem_8h_a48dfb6065652baf6d2a1a45d1536624a}{MIN\_\-KVAL}~5
+\item 
+\#define \hyperlink{buddySystem_8h_a56701f18aaad537f7fc0e9be309503c3}{RESERVED}~1
+\item 
+\#define \hyperlink{buddySystem_8h_a9a8e700d56e7d858108b755ad3edb52e}{FREE}~0
+\item 
+\#define \hyperlink{buddySystem_8h_a645a9a84cc0cc7a65fb892c5f436da52}{SIZE\_\-OF\_\-BLOCK\_\-HEADER}~9
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structblock}{block} \hyperlink{buddySystem_8h_ad70a28d3f2930e90f116773f3908ec72}{Block}
+\begin{DoxyCompactList}\small\item\em Alias for a Block Struct. \item\end{DoxyCompactList}\item 
+typedef struct \hyperlink{structblock}{block} $\ast$ \hyperlink{buddySystem_8h_ab62491c8faa2c57feff024ea7df68e0c}{BlockPtr}
+\begin{DoxyCompactList}\small\item\em Alias for a pointer to a Block Struct. \item\end{DoxyCompactList}\item 
+typedef char $\ast$ \hyperlink{buddySystem_8h_a15852e7ed251e60a05550eb9d1c49b82}{MemoryAddress}
+\begin{DoxyCompactList}\small\item\em Alias for an address to memory. \item\end{DoxyCompactList}\item 
+typedef unsigned int \hyperlink{buddySystem_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}
+\begin{DoxyCompactList}\small\item\em Alias for an unsigned int. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$ \hyperlink{buddySystem_8h_a37ca83954620aa7aeed9187336c25f71}{buddy\_\-malloc} (size\_\-t bytes)
+\begin{DoxyCompactList}\small\item\em Reserves a chunk of memory and returns the address of the beginning of the free space in the chunk. \item\end{DoxyCompactList}\item 
+void \hyperlink{buddySystem_8h_ad5a4b7f79e759c6fa2fb807788237dd7}{buddy\_\-free} (void $\ast$address)
+\begin{DoxyCompactList}\small\item\em Frees a block and puts it back on the free list. \item\end{DoxyCompactList}\item 
+void \hyperlink{buddySystem_8h_a9b866620c35b04692c513562f9e38650}{printMemory} ()
+\begin{DoxyCompactList}\small\item\em Prints out the blockAddress array and all the free blocks it contains. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Define Documentation}
+\hypertarget{buddySystem_8h_a9a8e700d56e7d858108b755ad3edb52e}{
+\index{buddySystem.h@{buddySystem.h}!FREE@{FREE}}
+\index{FREE@{FREE}!buddySystem.h@{buddySystem.h}}
+\subsubsection[{FREE}]{\setlength{\rightskip}{0pt plus 5cm}\#define FREE~0}}
+\label{buddySystem_8h_a9a8e700d56e7d858108b755ad3edb52e}
+\hypertarget{buddySystem_8h_a40af4217190d59d7145e58a278f9f87d}{
+\index{buddySystem.h@{buddySystem.h}!MAX\_\-ARRAY\_\-SIZE@{MAX\_\-ARRAY\_\-SIZE}}
+\index{MAX\_\-ARRAY\_\-SIZE@{MAX\_\-ARRAY\_\-SIZE}!buddySystem.h@{buddySystem.h}}
+\subsubsection[{MAX\_\-ARRAY\_\-SIZE}]{\setlength{\rightskip}{0pt plus 5cm}\#define MAX\_\-ARRAY\_\-SIZE~26}}
+\label{buddySystem_8h_a40af4217190d59d7145e58a278f9f87d}
+\hypertarget{buddySystem_8h_a0592dba56693fad79136250c11e5a7fe}{
+\index{buddySystem.h@{buddySystem.h}!MAX\_\-SIZE@{MAX\_\-SIZE}}
+\index{MAX\_\-SIZE@{MAX\_\-SIZE}!buddySystem.h@{buddySystem.h}}
+\subsubsection[{MAX\_\-SIZE}]{\setlength{\rightskip}{0pt plus 5cm}\#define MAX\_\-SIZE~67108864}}
+\label{buddySystem_8h_a0592dba56693fad79136250c11e5a7fe}
+\hypertarget{buddySystem_8h_a48dfb6065652baf6d2a1a45d1536624a}{
+\index{buddySystem.h@{buddySystem.h}!MIN\_\-KVAL@{MIN\_\-KVAL}}
+\index{MIN\_\-KVAL@{MIN\_\-KVAL}!buddySystem.h@{buddySystem.h}}
+\subsubsection[{MIN\_\-KVAL}]{\setlength{\rightskip}{0pt plus 5cm}\#define MIN\_\-KVAL~5}}
+\label{buddySystem_8h_a48dfb6065652baf6d2a1a45d1536624a}
+\hypertarget{buddySystem_8h_a56701f18aaad537f7fc0e9be309503c3}{
+\index{buddySystem.h@{buddySystem.h}!RESERVED@{RESERVED}}
+\index{RESERVED@{RESERVED}!buddySystem.h@{buddySystem.h}}
+\subsubsection[{RESERVED}]{\setlength{\rightskip}{0pt plus 5cm}\#define RESERVED~1}}
+\label{buddySystem_8h_a56701f18aaad537f7fc0e9be309503c3}
+\hypertarget{buddySystem_8h_a645a9a84cc0cc7a65fb892c5f436da52}{
+\index{buddySystem.h@{buddySystem.h}!SIZE\_\-OF\_\-BLOCK\_\-HEADER@{SIZE\_\-OF\_\-BLOCK\_\-HEADER}}
+\index{SIZE\_\-OF\_\-BLOCK\_\-HEADER@{SIZE\_\-OF\_\-BLOCK\_\-HEADER}!buddySystem.h@{buddySystem.h}}
+\subsubsection[{SIZE\_\-OF\_\-BLOCK\_\-HEADER}]{\setlength{\rightskip}{0pt plus 5cm}\#define SIZE\_\-OF\_\-BLOCK\_\-HEADER~9}}
+\label{buddySystem_8h_a645a9a84cc0cc7a65fb892c5f436da52}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{buddySystem_8h_ad70a28d3f2930e90f116773f3908ec72}{
+\index{buddySystem.h@{buddySystem.h}!Block@{Block}}
+\index{Block@{Block}!buddySystem.h@{buddySystem.h}}
+\subsubsection[{Block}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf block} {\bf Block}}}
+\label{buddySystem_8h_ad70a28d3f2930e90f116773f3908ec72}
+
+
+Alias for a Block Struct. 
+
+\hypertarget{buddySystem_8h_ab62491c8faa2c57feff024ea7df68e0c}{
+\index{buddySystem.h@{buddySystem.h}!BlockPtr@{BlockPtr}}
+\index{BlockPtr@{BlockPtr}!buddySystem.h@{buddySystem.h}}
+\subsubsection[{BlockPtr}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf block}$\ast$ {\bf BlockPtr}}}
+\label{buddySystem_8h_ab62491c8faa2c57feff024ea7df68e0c}
+
+
+Alias for a pointer to a Block Struct. 
+
+\hypertarget{buddySystem_8h_a15852e7ed251e60a05550eb9d1c49b82}{
+\index{buddySystem.h@{buddySystem.h}!MemoryAddress@{MemoryAddress}}
+\index{MemoryAddress@{MemoryAddress}!buddySystem.h@{buddySystem.h}}
+\subsubsection[{MemoryAddress}]{\setlength{\rightskip}{0pt plus 5cm}typedef char$\ast$ {\bf MemoryAddress}}}
+\label{buddySystem_8h_a15852e7ed251e60a05550eb9d1c49b82}
+
+
+Alias for an address to memory. 
+
+\hypertarget{buddySystem_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{
+\index{buddySystem.h@{buddySystem.h}!uint@{uint}}
+\index{uint@{uint}!buddySystem.h@{buddySystem.h}}
+\subsubsection[{uint}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned int {\bf uint}}}
+\label{buddySystem_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}
+
+
+Alias for an unsigned int. 
+
+
+
+\subsection{Function Documentation}
+\hypertarget{buddySystem_8h_ad5a4b7f79e759c6fa2fb807788237dd7}{
+\index{buddySystem.h@{buddySystem.h}!buddy\_\-free@{buddy\_\-free}}
+\index{buddy\_\-free@{buddy\_\-free}!buddySystem.h@{buddySystem.h}}
+\subsubsection[{buddy\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}void buddy\_\-free (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{ address}
+\end{DoxyParamCaption}
+)}}
+\label{buddySystem_8h_ad5a4b7f79e759c6fa2fb807788237dd7}
+
+
+Frees a block and puts it back on the free list. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em address}]Address to the block to free \end{DoxyParams}
+\hypertarget{buddySystem_8h_a37ca83954620aa7aeed9187336c25f71}{
+\index{buddySystem.h@{buddySystem.h}!buddy\_\-malloc@{buddy\_\-malloc}}
+\index{buddy\_\-malloc@{buddy\_\-malloc}!buddySystem.h@{buddySystem.h}}
+\subsubsection[{buddy\_\-malloc}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ buddy\_\-malloc (
+\begin{DoxyParamCaption}
+\item[{size\_\-t}]{ bytes}
+\end{DoxyParamCaption}
+)}}
+\label{buddySystem_8h_a37ca83954620aa7aeed9187336c25f71}
+
+
+Reserves a chunk of memory and returns the address of the beginning of the free space in the chunk. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em bytes}]Size of the chunk of memory to request \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the beginning of the free space 
+\end{DoxyReturn}
+\hypertarget{buddySystem_8h_a9b866620c35b04692c513562f9e38650}{
+\index{buddySystem.h@{buddySystem.h}!printMemory@{printMemory}}
+\index{printMemory@{printMemory}!buddySystem.h@{buddySystem.h}}
+\subsubsection[{printMemory}]{\setlength{\rightskip}{0pt plus 5cm}void printMemory (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{buddySystem_8h_a9b866620c35b04692c513562f9e38650}
+
+
+Prints out the blockAddress array and all the free blocks it contains. 
+

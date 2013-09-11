@@ -1,0 +1,597 @@
+\hypertarget{buddySystem_8c}{
+\section{buddySystem.c File Reference}
+\label{buddySystem_8c}\index{buddySystem.c@{buddySystem.c}}
+}
+{\ttfamily \#include \char`\"{}buddySystem.h\char`\"{}}\par
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+size\_\-t \hyperlink{buddySystem_8c_a1a8bd96ab42ba0c1af149c8d5f565066}{addToAddress} (\hyperlink{structblock}{BlockPtr} \hyperlink{structblock}{block}, int amount)
+\begin{DoxyCompactList}\small\item\em Adds an arbitrary amount to a block's address. \item\end{DoxyCompactList}\item 
+size\_\-t \hyperlink{buddySystem_8c_a2733781ddb815bc81ca8da1380f28f6e}{buddy} (\hyperlink{structblock}{BlockPtr} \hyperlink{structblock}{block})
+\begin{DoxyCompactList}\small\item\em Determines the address for the buddy block for a specified block. \item\end{DoxyCompactList}\item 
+void \hyperlink{buddySystem_8c_a38ee038ba8e4e263e8d3632fee033013}{initializeReservedBlock} (\hyperlink{structblock}{BlockPtr} \hyperlink{structblock}{block}, int tag, int kval)
+\begin{DoxyCompactList}\small\item\em Sets the header for a block. \item\end{DoxyCompactList}\item 
+void \hyperlink{buddySystem_8c_aa8619b01f2b787ef8947fdb7fb30d4f7}{initializeFreeBlock} (\hyperlink{structblock}{BlockPtr} \hyperlink{structblock}{block}, int tag, int kval, \hyperlink{structblock}{BlockPtr} prevBlock)
+\begin{DoxyCompactList}\small\item\em Sets the header for a block, and links it to the previous free block. \item\end{DoxyCompactList}\item 
+void \hyperlink{buddySystem_8c_ab6260e57d76c13a47b10081e2a9f68dc}{initial} ()
+\begin{DoxyCompactList}\small\item\em Initializes the memory block for the buddy system. \item\end{DoxyCompactList}\item 
+int \hyperlink{buddySystem_8c_aa608b004197f8b2b3fbe94a6d596af57}{buddy\_\-getSize} (\hyperlink{structblock}{BlockPtr} \hyperlink{structblock}{block})
+\begin{DoxyCompactList}\small\item\em Returns the size of the block based on it's kval. \item\end{DoxyCompactList}\item 
+int \hyperlink{buddySystem_8c_a3a6a4af3307617ebfbc6bda291ca5a7d}{isReserved} (\hyperlink{structblock}{BlockPtr} \hyperlink{structblock}{block})
+\begin{DoxyCompactList}\small\item\em Returns whether or not the block is currently reserved. \item\end{DoxyCompactList}\item 
+int \hyperlink{buddySystem_8c_a644d022610830f67a7fd269460912b2a}{isNextBlockNull} (\hyperlink{structblock}{BlockPtr} \hyperlink{structblock}{block})
+\begin{DoxyCompactList}\small\item\em Returns whether or not the next block is null. \item\end{DoxyCompactList}\item 
+int \hyperlink{buddySystem_8c_a684f41ebaa7e709d1a63c25a0d56f4b4}{isBlockIndexNull} (int index)
+\begin{DoxyCompactList}\small\item\em Returns whether or not the index of the blockAddress array is null. \item\end{DoxyCompactList}\item 
+\hyperlink{structblock}{BlockPtr} \hyperlink{buddySystem_8c_a266790979d5cb7299d502a81bbb09f0b}{nextFreeBlock} (\hyperlink{structblock}{BlockPtr} \hyperlink{structblock}{block})
+\begin{DoxyCompactList}\small\item\em Returns the next block in the list. \item\end{DoxyCompactList}\item 
+int \hyperlink{buddySystem_8c_a2e0b289673d1de6845faa665b64c19ed}{isKvalEmpty} (int kval)
+\begin{DoxyCompactList}\small\item\em Determines if the index of the block addresses is currently empty. \item\end{DoxyCompactList}\item 
+void \hyperlink{buddySystem_8c_a3610beb050f16cabc92bc9d7632a579e}{searchAndRemoveBlockFromFreeList} (\hyperlink{structblock}{BlockPtr} \hyperlink{structblock}{block})
+\begin{DoxyCompactList}\small\item\em Searches the free list for the block and removes it. \item\end{DoxyCompactList}\item 
+int \hyperlink{buddySystem_8c_a8f8ca5e0fac76bb9e0739b587b1038cc}{isBlockFree} (\hyperlink{structblock}{BlockPtr} \hyperlink{structblock}{block})
+\begin{DoxyCompactList}\small\item\em Determines if the block is marked as a free block. \item\end{DoxyCompactList}\item 
+int \hyperlink{buddySystem_8c_a43d6ce57047eff6eeeb4d3d8edf48f2a}{isKvalLessThanMin} (int kval)
+\begin{DoxyCompactList}\small\item\em Determines if the kval is less than the space required for the header. \item\end{DoxyCompactList}\item 
+\hyperlink{structblock}{BlockPtr} \hyperlink{buddySystem_8c_a477b9d73f90aac68a97154f8b21f0c4b}{splitBlock} (\hyperlink{structblock}{BlockPtr} \hyperlink{structblock}{block})
+\begin{DoxyCompactList}\small\item\em Splits a specified block and sets the buddy block in the free list. \item\end{DoxyCompactList}\item 
+int \hyperlink{buddySystem_8c_a77944fac395914492a06d114e8790b15}{isKvalAtMax} (\hyperlink{structblock}{BlockPtr} \hyperlink{structblock}{block})
+\begin{DoxyCompactList}\small\item\em Determines if the block's Kval is at or above the maximum kval allocated. \item\end{DoxyCompactList}\item 
+int \hyperlink{buddySystem_8c_a5419d57b84fd19fb7ec98c158a2f4791}{isBlockAddressValid} (size\_\-t \hyperlink{buddySystem_8c_ab2017b99ab93501c0f271c60e47773aa}{blockAddress})
+\begin{DoxyCompactList}\small\item\em Determines if the block address is valid. \item\end{DoxyCompactList}\item 
+int \hyperlink{buddySystem_8c_a8b6e6fdd79e4ce1af112aa71eef17ca9}{isNextBuddyBlockReadyToJoin} (\hyperlink{structblock}{BlockPtr} \hyperlink{structblock}{block}, \hyperlink{structblock}{BlockPtr} buddyBlock, size\_\-t buddyAddress)
+\begin{DoxyCompactList}\small\item\em Determines if the block's buddy block needs to be merged in the free list. \item\end{DoxyCompactList}\item 
+void \hyperlink{buddySystem_8c_a824126d1398fe4cb9082a257169d3c3a}{setNodeInFreeList} (\hyperlink{structblock}{BlockPtr} \hyperlink{structblock}{block})
+\begin{DoxyCompactList}\small\item\em Sets the node back into the free list. \item\end{DoxyCompactList}\item 
+void \hyperlink{buddySystem_8c_a4bab0a89df32cf4f4feec7899abcdda3}{joinBlock} (\hyperlink{structblock}{BlockPtr} \hyperlink{structblock}{block}, size\_\-t blocksAddress)
+\begin{DoxyCompactList}\small\item\em Joins the block and all it's resultant buddy blocks. \item\end{DoxyCompactList}\item 
+void \hyperlink{buddySystem_8c_ad5a4b7f79e759c6fa2fb807788237dd7}{buddy\_\-free} (void $\ast$address)
+\begin{DoxyCompactList}\small\item\em Frees a block and puts it back on the free list. \item\end{DoxyCompactList}\item 
+void \hyperlink{buddySystem_8c_a908226330d03ca03fdfd26d0391667e9}{printBlock} (\hyperlink{structblock}{BlockPtr} \hyperlink{structblock}{block})
+\begin{DoxyCompactList}\small\item\em Prints out a block and any other blocks that it is linked to at the same kval. \item\end{DoxyCompactList}\item 
+void \hyperlink{buddySystem_8c_ad54ee729d2e1e3a807ec26bb30bc13b2}{printAddress} (\hyperlink{structblock}{BlockPtr} \hyperlink{structblock}{block})
+\begin{DoxyCompactList}\small\item\em Prints out a block from the address of the end of the Block Header. \item\end{DoxyCompactList}\item 
+void \hyperlink{buddySystem_8c_a9b866620c35b04692c513562f9e38650}{printMemory} ()
+\begin{DoxyCompactList}\small\item\em Prints out the blockAddress array and all the free blocks it contains. \item\end{DoxyCompactList}\item 
+int \hyperlink{buddySystem_8c_af44d4816170336aea4e366745fb21457}{upper\_\-power\_\-of\_\-two} (\hyperlink{buddySystem_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint} v)
+\begin{DoxyCompactList}\small\item\em Returns the ceiling of the log of 2 of a passed in number. \item\end{DoxyCompactList}\item 
+void $\ast$ \hyperlink{buddySystem_8c_a37ca83954620aa7aeed9187336c25f71}{buddy\_\-malloc} (size\_\-t bytes)
+\begin{DoxyCompactList}\small\item\em Reserves a chunk of memory and returns the address of the beginning of the free space in the chunk. \item\end{DoxyCompactList}\item 
+void $\ast$$\ast$ \hyperlink{buddySystem_8c_add2e773c58ec4f8c6eda3cd3b7f93c51}{buddy\_\-calloc} (size\_\-t n, size\_\-t bytes)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{buddySystem_8h_a15852e7ed251e60a05550eb9d1c49b82}{MemoryAddress} \hyperlink{buddySystem_8c_a150546ba7adc3f6077e39e11ca08b0ba}{BaseAddress}
+\item 
+\hyperlink{structblock}{BlockPtr} \hyperlink{buddySystem_8c_ab2017b99ab93501c0f271c60e47773aa}{blockAddress} \mbox{[}MAX\_\-ARRAY\_\-SIZE+1\mbox{]}
+\item 
+\hyperlink{structblock}{BlockPtr} \hyperlink{buddySystem_8c_a0efbdcbcc2323508dfc4a738df489d0d}{initialBlock}
+\item 
+size\_\-t \hyperlink{buddySystem_8c_a035f6a473b8c0c132ccb0282518e93a3}{initialBlockAddress}
+\item 
+int \hyperlink{buddySystem_8c_ad06983e7f6e71b233ea7ff3dee1952f2}{initialized} = 0
+\item 
+const \hyperlink{buddySystem_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint} \hyperlink{buddySystem_8c_a93f15f3124c309f52c397bb44354def8}{b} \mbox{[}$\,$\mbox{]} = \{0x2, 0xC, 0xF0, 0xFF00, 0xFFFF0000\}
+\item 
+const \hyperlink{buddySystem_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint} \hyperlink{buddySystem_8c_a9a84f74cf4674c5a32fe43f6cce85588}{S} \mbox{[}$\,$\mbox{]} = \{1, 2, 4, 8, 16\}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{buddySystem_8c_a1a8bd96ab42ba0c1af149c8d5f565066}{
+\index{buddySystem.c@{buddySystem.c}!addToAddress@{addToAddress}}
+\index{addToAddress@{addToAddress}!buddySystem.c@{buddySystem.c}}
+\subsubsection[{addToAddress}]{\setlength{\rightskip}{0pt plus 5cm}size\_\-t addToAddress (
+\begin{DoxyParamCaption}
+\item[{{\bf BlockPtr}}]{ block, }
+\item[{int}]{ amount}
+\end{DoxyParamCaption}
+)}}
+\label{buddySystem_8c_a1a8bd96ab42ba0c1af149c8d5f565066}
+
+
+Adds an arbitrary amount to a block's address. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em block}]Pointer to the block \item[{\em amount}]Amount to add to the block's address \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+New address from the result of the sum of the amount and the block's address 
+\end{DoxyReturn}
+\hypertarget{buddySystem_8c_a2733781ddb815bc81ca8da1380f28f6e}{
+\index{buddySystem.c@{buddySystem.c}!buddy@{buddy}}
+\index{buddy@{buddy}!buddySystem.c@{buddySystem.c}}
+\subsubsection[{buddy}]{\setlength{\rightskip}{0pt plus 5cm}size\_\-t buddy (
+\begin{DoxyParamCaption}
+\item[{{\bf BlockPtr}}]{ block}
+\end{DoxyParamCaption}
+)}}
+\label{buddySystem_8c_a2733781ddb815bc81ca8da1380f28f6e}
+
+
+Determines the address for the buddy block for a specified block. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em block}]BlockPtr to find the buddy block for \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Address to the buddy block. 
+\end{DoxyReturn}
+\hypertarget{buddySystem_8c_add2e773c58ec4f8c6eda3cd3b7f93c51}{
+\index{buddySystem.c@{buddySystem.c}!buddy\_\-calloc@{buddy\_\-calloc}}
+\index{buddy\_\-calloc@{buddy\_\-calloc}!buddySystem.c@{buddySystem.c}}
+\subsubsection[{buddy\_\-calloc}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$$\ast$ buddy\_\-calloc (
+\begin{DoxyParamCaption}
+\item[{size\_\-t}]{ n, }
+\item[{size\_\-t}]{ bytes}
+\end{DoxyParamCaption}
+)}}
+\label{buddySystem_8c_add2e773c58ec4f8c6eda3cd3b7f93c51}
+\hypertarget{buddySystem_8c_ad5a4b7f79e759c6fa2fb807788237dd7}{
+\index{buddySystem.c@{buddySystem.c}!buddy\_\-free@{buddy\_\-free}}
+\index{buddy\_\-free@{buddy\_\-free}!buddySystem.c@{buddySystem.c}}
+\subsubsection[{buddy\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}void buddy\_\-free (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{ address}
+\end{DoxyParamCaption}
+)}}
+\label{buddySystem_8c_ad5a4b7f79e759c6fa2fb807788237dd7}
+
+
+Frees a block and puts it back on the free list. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em address}]Address to the block to free \end{DoxyParams}
+\hypertarget{buddySystem_8c_aa608b004197f8b2b3fbe94a6d596af57}{
+\index{buddySystem.c@{buddySystem.c}!buddy\_\-getSize@{buddy\_\-getSize}}
+\index{buddy\_\-getSize@{buddy\_\-getSize}!buddySystem.c@{buddySystem.c}}
+\subsubsection[{buddy\_\-getSize}]{\setlength{\rightskip}{0pt plus 5cm}int buddy\_\-getSize (
+\begin{DoxyParamCaption}
+\item[{{\bf BlockPtr}}]{ block}
+\end{DoxyParamCaption}
+)}}
+\label{buddySystem_8c_aa608b004197f8b2b3fbe94a6d596af57}
+
+
+Returns the size of the block based on it's kval. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em block}]Pointer to the block \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Size of the block 
+\end{DoxyReturn}
+\hypertarget{buddySystem_8c_a37ca83954620aa7aeed9187336c25f71}{
+\index{buddySystem.c@{buddySystem.c}!buddy\_\-malloc@{buddy\_\-malloc}}
+\index{buddy\_\-malloc@{buddy\_\-malloc}!buddySystem.c@{buddySystem.c}}
+\subsubsection[{buddy\_\-malloc}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ buddy\_\-malloc (
+\begin{DoxyParamCaption}
+\item[{size\_\-t}]{ bytes}
+\end{DoxyParamCaption}
+)}}
+\label{buddySystem_8c_a37ca83954620aa7aeed9187336c25f71}
+
+
+Reserves a chunk of memory and returns the address of the beginning of the free space in the chunk. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em bytes}]Size of the chunk of memory to request \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the beginning of the free space 
+\end{DoxyReturn}
+\hypertarget{buddySystem_8c_ab6260e57d76c13a47b10081e2a9f68dc}{
+\index{buddySystem.c@{buddySystem.c}!initial@{initial}}
+\index{initial@{initial}!buddySystem.c@{buddySystem.c}}
+\subsubsection[{initial}]{\setlength{\rightskip}{0pt plus 5cm}void initial (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{buddySystem_8c_ab6260e57d76c13a47b10081e2a9f68dc}
+
+
+Initializes the memory block for the buddy system. 
+
+\hypertarget{buddySystem_8c_aa8619b01f2b787ef8947fdb7fb30d4f7}{
+\index{buddySystem.c@{buddySystem.c}!initializeFreeBlock@{initializeFreeBlock}}
+\index{initializeFreeBlock@{initializeFreeBlock}!buddySystem.c@{buddySystem.c}}
+\subsubsection[{initializeFreeBlock}]{\setlength{\rightskip}{0pt plus 5cm}void initializeFreeBlock (
+\begin{DoxyParamCaption}
+\item[{{\bf BlockPtr}}]{ block, }
+\item[{int}]{ tag, }
+\item[{int}]{ kval, }
+\item[{{\bf BlockPtr}}]{ prevBlock}
+\end{DoxyParamCaption}
+)}}
+\label{buddySystem_8c_aa8619b01f2b787ef8947fdb7fb30d4f7}
+
+
+Sets the header for a block, and links it to the previous free block. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em block}]Pointer to the block \item[{\em tag}]Reservation tage for the block \item[{\em kval}]Kval for the block \item[{\em prevBlock}]Previous block in the list \end{DoxyParams}
+\hypertarget{buddySystem_8c_a38ee038ba8e4e263e8d3632fee033013}{
+\index{buddySystem.c@{buddySystem.c}!initializeReservedBlock@{initializeReservedBlock}}
+\index{initializeReservedBlock@{initializeReservedBlock}!buddySystem.c@{buddySystem.c}}
+\subsubsection[{initializeReservedBlock}]{\setlength{\rightskip}{0pt plus 5cm}void initializeReservedBlock (
+\begin{DoxyParamCaption}
+\item[{{\bf BlockPtr}}]{ block, }
+\item[{int}]{ tag, }
+\item[{int}]{ kval}
+\end{DoxyParamCaption}
+)}}
+\label{buddySystem_8c_a38ee038ba8e4e263e8d3632fee033013}
+
+
+Sets the header for a block. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em block}]Pointer to the block \item[{\em tag}]Reservation tag for the block \item[{\em kval}]Kval for the block \end{DoxyParams}
+\hypertarget{buddySystem_8c_a5419d57b84fd19fb7ec98c158a2f4791}{
+\index{buddySystem.c@{buddySystem.c}!isBlockAddressValid@{isBlockAddressValid}}
+\index{isBlockAddressValid@{isBlockAddressValid}!buddySystem.c@{buddySystem.c}}
+\subsubsection[{isBlockAddressValid}]{\setlength{\rightskip}{0pt plus 5cm}int isBlockAddressValid (
+\begin{DoxyParamCaption}
+\item[{size\_\-t}]{ blockAddress}
+\end{DoxyParamCaption}
+)}}
+\label{buddySystem_8c_a5419d57b84fd19fb7ec98c158a2f4791}
+
+
+Determines if the block address is valid. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em blockAddress}]The block address to look at \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if valid, false if invalid 
+\end{DoxyReturn}
+\hypertarget{buddySystem_8c_a8f8ca5e0fac76bb9e0739b587b1038cc}{
+\index{buddySystem.c@{buddySystem.c}!isBlockFree@{isBlockFree}}
+\index{isBlockFree@{isBlockFree}!buddySystem.c@{buddySystem.c}}
+\subsubsection[{isBlockFree}]{\setlength{\rightskip}{0pt plus 5cm}int isBlockFree (
+\begin{DoxyParamCaption}
+\item[{{\bf BlockPtr}}]{ block}
+\end{DoxyParamCaption}
+)}}
+\label{buddySystem_8c_a8f8ca5e0fac76bb9e0739b587b1038cc}
+
+
+Determines if the block is marked as a free block. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em block}]BlockPtr to check \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if free, false if otherwise 
+\end{DoxyReturn}
+\hypertarget{buddySystem_8c_a684f41ebaa7e709d1a63c25a0d56f4b4}{
+\index{buddySystem.c@{buddySystem.c}!isBlockIndexNull@{isBlockIndexNull}}
+\index{isBlockIndexNull@{isBlockIndexNull}!buddySystem.c@{buddySystem.c}}
+\subsubsection[{isBlockIndexNull}]{\setlength{\rightskip}{0pt plus 5cm}int isBlockIndexNull (
+\begin{DoxyParamCaption}
+\item[{int}]{ index}
+\end{DoxyParamCaption}
+)}}
+\label{buddySystem_8c_a684f41ebaa7e709d1a63c25a0d56f4b4}
+
+
+Returns whether or not the index of the blockAddress array is null. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em index}]Index of the array to check \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if null, false if defined. 
+\end{DoxyReturn}
+\hypertarget{buddySystem_8c_a77944fac395914492a06d114e8790b15}{
+\index{buddySystem.c@{buddySystem.c}!isKvalAtMax@{isKvalAtMax}}
+\index{isKvalAtMax@{isKvalAtMax}!buddySystem.c@{buddySystem.c}}
+\subsubsection[{isKvalAtMax}]{\setlength{\rightskip}{0pt plus 5cm}int isKvalAtMax (
+\begin{DoxyParamCaption}
+\item[{{\bf BlockPtr}}]{ block}
+\end{DoxyParamCaption}
+)}}
+\label{buddySystem_8c_a77944fac395914492a06d114e8790b15}
+
+
+Determines if the block's Kval is at or above the maximum kval allocated. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em block}]The block to look at \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the block's kval is at or above the max kval allocated, false otherwise 
+\end{DoxyReturn}
+\hypertarget{buddySystem_8c_a2e0b289673d1de6845faa665b64c19ed}{
+\index{buddySystem.c@{buddySystem.c}!isKvalEmpty@{isKvalEmpty}}
+\index{isKvalEmpty@{isKvalEmpty}!buddySystem.c@{buddySystem.c}}
+\subsubsection[{isKvalEmpty}]{\setlength{\rightskip}{0pt plus 5cm}int isKvalEmpty (
+\begin{DoxyParamCaption}
+\item[{int}]{ kval}
+\end{DoxyParamCaption}
+)}}
+\label{buddySystem_8c_a2e0b289673d1de6845faa665b64c19ed}
+
+
+Determines if the index of the block addresses is currently empty. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em kval}]Kval to check \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if there is no block at the current index of the block addresses array, false otherwise 
+\end{DoxyReturn}
+\hypertarget{buddySystem_8c_a43d6ce57047eff6eeeb4d3d8edf48f2a}{
+\index{buddySystem.c@{buddySystem.c}!isKvalLessThanMin@{isKvalLessThanMin}}
+\index{isKvalLessThanMin@{isKvalLessThanMin}!buddySystem.c@{buddySystem.c}}
+\subsubsection[{isKvalLessThanMin}]{\setlength{\rightskip}{0pt plus 5cm}int isKvalLessThanMin (
+\begin{DoxyParamCaption}
+\item[{int}]{ kval}
+\end{DoxyParamCaption}
+)}}
+\label{buddySystem_8c_a43d6ce57047eff6eeeb4d3d8edf48f2a}
+
+
+Determines if the kval is less than the space required for the header. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em kval}]Kval to check \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if less than the minimum, false otherwise. 
+\end{DoxyReturn}
+\hypertarget{buddySystem_8c_a644d022610830f67a7fd269460912b2a}{
+\index{buddySystem.c@{buddySystem.c}!isNextBlockNull@{isNextBlockNull}}
+\index{isNextBlockNull@{isNextBlockNull}!buddySystem.c@{buddySystem.c}}
+\subsubsection[{isNextBlockNull}]{\setlength{\rightskip}{0pt plus 5cm}int isNextBlockNull (
+\begin{DoxyParamCaption}
+\item[{{\bf BlockPtr}}]{ block}
+\end{DoxyParamCaption}
+)}}
+\label{buddySystem_8c_a644d022610830f67a7fd269460912b2a}
+
+
+Returns whether or not the next block is null. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em block}]Pointer to the block \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if null, false if defined 
+\end{DoxyReturn}
+\hypertarget{buddySystem_8c_a8b6e6fdd79e4ce1af112aa71eef17ca9}{
+\index{buddySystem.c@{buddySystem.c}!isNextBuddyBlockReadyToJoin@{isNextBuddyBlockReadyToJoin}}
+\index{isNextBuddyBlockReadyToJoin@{isNextBuddyBlockReadyToJoin}!buddySystem.c@{buddySystem.c}}
+\subsubsection[{isNextBuddyBlockReadyToJoin}]{\setlength{\rightskip}{0pt plus 5cm}int isNextBuddyBlockReadyToJoin (
+\begin{DoxyParamCaption}
+\item[{{\bf BlockPtr}}]{ block, }
+\item[{{\bf BlockPtr}}]{ buddyBlock, }
+\item[{size\_\-t}]{ buddyAddress}
+\end{DoxyParamCaption}
+)}}
+\label{buddySystem_8c_a8b6e6fdd79e4ce1af112aa71eef17ca9}
+
+
+Determines if the block's buddy block needs to be merged in the free list. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em block}]The BlockPtr of the buddyBlock's buddy. \item[{\em buddyBlock}]The BlockPtr of the block's buddy. \item[{\em buddyAddress}]The address of the buddyBlock \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the buddy block of block is ready to be merged, false if otherwise 
+\end{DoxyReturn}
+\hypertarget{buddySystem_8c_a3a6a4af3307617ebfbc6bda291ca5a7d}{
+\index{buddySystem.c@{buddySystem.c}!isReserved@{isReserved}}
+\index{isReserved@{isReserved}!buddySystem.c@{buddySystem.c}}
+\subsubsection[{isReserved}]{\setlength{\rightskip}{0pt plus 5cm}int isReserved (
+\begin{DoxyParamCaption}
+\item[{{\bf BlockPtr}}]{ block}
+\end{DoxyParamCaption}
+)}}
+\label{buddySystem_8c_a3a6a4af3307617ebfbc6bda291ca5a7d}
+
+
+Returns whether or not the block is currently reserved. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em block}]Pointer to the block \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if reserved, false if free 
+\end{DoxyReturn}
+\hypertarget{buddySystem_8c_a4bab0a89df32cf4f4feec7899abcdda3}{
+\index{buddySystem.c@{buddySystem.c}!joinBlock@{joinBlock}}
+\index{joinBlock@{joinBlock}!buddySystem.c@{buddySystem.c}}
+\subsubsection[{joinBlock}]{\setlength{\rightskip}{0pt plus 5cm}void joinBlock (
+\begin{DoxyParamCaption}
+\item[{{\bf BlockPtr}}]{ block, }
+\item[{size\_\-t}]{ blocksAddress}
+\end{DoxyParamCaption}
+)}}
+\label{buddySystem_8c_a4bab0a89df32cf4f4feec7899abcdda3}
+
+
+Joins the block and all it's resultant buddy blocks. 
+
+It puts the result back on the free list 
+\begin{DoxyParams}{Parameters}
+\item[{\em block}]BlockPtr to the block to free \item[{\em blocksAddress}]Address to the block to free \end{DoxyParams}
+\hypertarget{buddySystem_8c_a266790979d5cb7299d502a81bbb09f0b}{
+\index{buddySystem.c@{buddySystem.c}!nextFreeBlock@{nextFreeBlock}}
+\index{nextFreeBlock@{nextFreeBlock}!buddySystem.c@{buddySystem.c}}
+\subsubsection[{nextFreeBlock}]{\setlength{\rightskip}{0pt plus 5cm}{\bf BlockPtr} nextFreeBlock (
+\begin{DoxyParamCaption}
+\item[{{\bf BlockPtr}}]{ block}
+\end{DoxyParamCaption}
+)}}
+\label{buddySystem_8c_a266790979d5cb7299d502a81bbb09f0b}
+
+
+Returns the next block in the list. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em block}]Point to the blocker \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The next block, unless there is no more blocks in the list. If there are no more blocks in the list, it returns NULL. 
+\end{DoxyReturn}
+\hypertarget{buddySystem_8c_ad54ee729d2e1e3a807ec26bb30bc13b2}{
+\index{buddySystem.c@{buddySystem.c}!printAddress@{printAddress}}
+\index{printAddress@{printAddress}!buddySystem.c@{buddySystem.c}}
+\subsubsection[{printAddress}]{\setlength{\rightskip}{0pt plus 5cm}void printAddress (
+\begin{DoxyParamCaption}
+\item[{{\bf BlockPtr}}]{ block}
+\end{DoxyParamCaption}
+)}}
+\label{buddySystem_8c_ad54ee729d2e1e3a807ec26bb30bc13b2}
+
+
+Prints out a block from the address of the end of the Block Header. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em block}]BlockPtr that is adjusted to the end of the Block Header \end{DoxyParams}
+\hypertarget{buddySystem_8c_a908226330d03ca03fdfd26d0391667e9}{
+\index{buddySystem.c@{buddySystem.c}!printBlock@{printBlock}}
+\index{printBlock@{printBlock}!buddySystem.c@{buddySystem.c}}
+\subsubsection[{printBlock}]{\setlength{\rightskip}{0pt plus 5cm}void printBlock (
+\begin{DoxyParamCaption}
+\item[{{\bf BlockPtr}}]{ block}
+\end{DoxyParamCaption}
+)}}
+\label{buddySystem_8c_a908226330d03ca03fdfd26d0391667e9}
+
+
+Prints out a block and any other blocks that it is linked to at the same kval. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em block}]Block to print out. \end{DoxyParams}
+\hypertarget{buddySystem_8c_a9b866620c35b04692c513562f9e38650}{
+\index{buddySystem.c@{buddySystem.c}!printMemory@{printMemory}}
+\index{printMemory@{printMemory}!buddySystem.c@{buddySystem.c}}
+\subsubsection[{printMemory}]{\setlength{\rightskip}{0pt plus 5cm}void printMemory (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{buddySystem_8c_a9b866620c35b04692c513562f9e38650}
+
+
+Prints out the blockAddress array and all the free blocks it contains. 
+
+\hypertarget{buddySystem_8c_a3610beb050f16cabc92bc9d7632a579e}{
+\index{buddySystem.c@{buddySystem.c}!searchAndRemoveBlockFromFreeList@{searchAndRemoveBlockFromFreeList}}
+\index{searchAndRemoveBlockFromFreeList@{searchAndRemoveBlockFromFreeList}!buddySystem.c@{buddySystem.c}}
+\subsubsection[{searchAndRemoveBlockFromFreeList}]{\setlength{\rightskip}{0pt plus 5cm}void searchAndRemoveBlockFromFreeList (
+\begin{DoxyParamCaption}
+\item[{{\bf BlockPtr}}]{ block}
+\end{DoxyParamCaption}
+)}}
+\label{buddySystem_8c_a3610beb050f16cabc92bc9d7632a579e}
+
+
+Searches the free list for the block and removes it. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em block}]BlockPtr to search for \end{DoxyParams}
+\hypertarget{buddySystem_8c_a824126d1398fe4cb9082a257169d3c3a}{
+\index{buddySystem.c@{buddySystem.c}!setNodeInFreeList@{setNodeInFreeList}}
+\index{setNodeInFreeList@{setNodeInFreeList}!buddySystem.c@{buddySystem.c}}
+\subsubsection[{setNodeInFreeList}]{\setlength{\rightskip}{0pt plus 5cm}void setNodeInFreeList (
+\begin{DoxyParamCaption}
+\item[{{\bf BlockPtr}}]{ block}
+\end{DoxyParamCaption}
+)}}
+\label{buddySystem_8c_a824126d1398fe4cb9082a257169d3c3a}
+
+
+Sets the node back into the free list. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em block}]Block to place back into the free list \end{DoxyParams}
+\hypertarget{buddySystem_8c_a477b9d73f90aac68a97154f8b21f0c4b}{
+\index{buddySystem.c@{buddySystem.c}!splitBlock@{splitBlock}}
+\index{splitBlock@{splitBlock}!buddySystem.c@{buddySystem.c}}
+\subsubsection[{splitBlock}]{\setlength{\rightskip}{0pt plus 5cm}{\bf BlockPtr} splitBlock (
+\begin{DoxyParamCaption}
+\item[{{\bf BlockPtr}}]{ block}
+\end{DoxyParamCaption}
+)}}
+\label{buddySystem_8c_a477b9d73f90aac68a97154f8b21f0c4b}
+
+
+Splits a specified block and sets the buddy block in the free list. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em block}]Block to split \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The left most block from the split 
+\end{DoxyReturn}
+\hypertarget{buddySystem_8c_af44d4816170336aea4e366745fb21457}{
+\index{buddySystem.c@{buddySystem.c}!upper\_\-power\_\-of\_\-two@{upper\_\-power\_\-of\_\-two}}
+\index{upper\_\-power\_\-of\_\-two@{upper\_\-power\_\-of\_\-two}!buddySystem.c@{buddySystem.c}}
+\subsubsection[{upper\_\-power\_\-of\_\-two}]{\setlength{\rightskip}{0pt plus 5cm}int upper\_\-power\_\-of\_\-two (
+\begin{DoxyParamCaption}
+\item[{{\bf uint}}]{ v}
+\end{DoxyParamCaption}
+)}}
+\label{buddySystem_8c_af44d4816170336aea4e366745fb21457}
+
+
+Returns the ceiling of the log of 2 of a passed in number. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em v}]Number to determine log of 2 from \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ceiling of the log of 2 of the passed in number Credits go to Sean Eron Anderson for this Bit Twiddling hack The original page this was found on can be found at the following url: \href{http://graphics.stanford.edu/~seander/bithacks.html}{\tt http://graphics.stanford.edu/$\sim$seander/bithacks.html} 
+\end{DoxyReturn}
+
+
+\subsection{Variable Documentation}
+\hypertarget{buddySystem_8c_a93f15f3124c309f52c397bb44354def8}{
+\index{buddySystem.c@{buddySystem.c}!b@{b}}
+\index{b@{b}!buddySystem.c@{buddySystem.c}}
+\subsubsection[{b}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf uint} {\bf b}\mbox{[}$\,$\mbox{]} = \{0x2, 0xC, 0xF0, 0xFF00, 0xFFFF0000\}}}
+\label{buddySystem_8c_a93f15f3124c309f52c397bb44354def8}
+\hypertarget{buddySystem_8c_a150546ba7adc3f6077e39e11ca08b0ba}{
+\index{buddySystem.c@{buddySystem.c}!BaseAddress@{BaseAddress}}
+\index{BaseAddress@{BaseAddress}!buddySystem.c@{buddySystem.c}}
+\subsubsection[{BaseAddress}]{\setlength{\rightskip}{0pt plus 5cm}{\bf MemoryAddress} {\bf BaseAddress}}}
+\label{buddySystem_8c_a150546ba7adc3f6077e39e11ca08b0ba}
+\hypertarget{buddySystem_8c_ab2017b99ab93501c0f271c60e47773aa}{
+\index{buddySystem.c@{buddySystem.c}!blockAddress@{blockAddress}}
+\index{blockAddress@{blockAddress}!buddySystem.c@{buddySystem.c}}
+\subsubsection[{blockAddress}]{\setlength{\rightskip}{0pt plus 5cm}{\bf BlockPtr} {\bf blockAddress}\mbox{[}MAX\_\-ARRAY\_\-SIZE+1\mbox{]}}}
+\label{buddySystem_8c_ab2017b99ab93501c0f271c60e47773aa}
+\hypertarget{buddySystem_8c_a0efbdcbcc2323508dfc4a738df489d0d}{
+\index{buddySystem.c@{buddySystem.c}!initialBlock@{initialBlock}}
+\index{initialBlock@{initialBlock}!buddySystem.c@{buddySystem.c}}
+\subsubsection[{initialBlock}]{\setlength{\rightskip}{0pt plus 5cm}{\bf BlockPtr} {\bf initialBlock}}}
+\label{buddySystem_8c_a0efbdcbcc2323508dfc4a738df489d0d}
+\hypertarget{buddySystem_8c_a035f6a473b8c0c132ccb0282518e93a3}{
+\index{buddySystem.c@{buddySystem.c}!initialBlockAddress@{initialBlockAddress}}
+\index{initialBlockAddress@{initialBlockAddress}!buddySystem.c@{buddySystem.c}}
+\subsubsection[{initialBlockAddress}]{\setlength{\rightskip}{0pt plus 5cm}size\_\-t {\bf initialBlockAddress}}}
+\label{buddySystem_8c_a035f6a473b8c0c132ccb0282518e93a3}
+\hypertarget{buddySystem_8c_ad06983e7f6e71b233ea7ff3dee1952f2}{
+\index{buddySystem.c@{buddySystem.c}!initialized@{initialized}}
+\index{initialized@{initialized}!buddySystem.c@{buddySystem.c}}
+\subsubsection[{initialized}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf initialized} = 0}}
+\label{buddySystem_8c_ad06983e7f6e71b233ea7ff3dee1952f2}
+\hypertarget{buddySystem_8c_a9a84f74cf4674c5a32fe43f6cce85588}{
+\index{buddySystem.c@{buddySystem.c}!S@{S}}
+\index{S@{S}!buddySystem.c@{buddySystem.c}}
+\subsubsection[{S}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf uint} {\bf S}\mbox{[}$\,$\mbox{]} = \{1, 2, 4, 8, 16\}}}
+\label{buddySystem_8c_a9a84f74cf4674c5a32fe43f6cce85588}

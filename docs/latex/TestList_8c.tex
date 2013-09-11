@@ -1,0 +1,270 @@
+\hypertarget{TestList_8c}{
+\section{TestList.c File Reference}
+\label{TestList_8c}\index{TestList.c@{TestList.c}}
+}
+{\ttfamily \#include $<$stdio.h$>$}\par
+{\ttfamily \#include $<$stdlib.h$>$}\par
+{\ttfamily \#include \char`\"{}buddySystem.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}common.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}Job.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}Node.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}List.h\char`\"{}}\par
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{TestList_8c_a8d9d5174310f745f9f66a2e7e5978490}{print\_\-stats} (int $\ast$tests)
+\item 
+void \hyperlink{TestList_8c_a36d2816c9822a5239f22a3b6e7b193a1}{runRandomTests} (int count, unsigned int seed, int n, \hyperlink{structlist}{ListPtr} \hyperlink{structlist}{list})
+\item 
+void \hyperlink{TestList_8c_ae89db4cac9255ae41a5964668dde0f26}{runEdgeCases} ()
+\begin{DoxyCompactList}\small\item\em Runs edge tests on the current Doubly Linked List implementation. \item\end{DoxyCompactList}\item 
+void \hyperlink{TestList_8c_ae28671978ffaa1acebfc52fa2272e83f}{displayDebugInfo} (\hyperlink{structlist}{ListPtr} \hyperlink{structlist}{list})
+\begin{DoxyCompactList}\small\item\em Displays the list and all the information it includes. \item\end{DoxyCompactList}\item 
+void \hyperlink{TestList_8c_a081711090cb9ca19fc3a19c04a1851f8}{verifyAddAtFrontList} (\hyperlink{structlist}{ListPtr} \hyperlink{structlist}{list}, int count)
+\begin{DoxyCompactList}\small\item\em Verifies that the addAtFront function executed correctly. \item\end{DoxyCompactList}\item 
+void \hyperlink{TestList_8c_affd35c0ad1aee735dde31607e0c229df}{verifyAddAtRearList} (\hyperlink{structlist}{ListPtr} \hyperlink{structlist}{list}, int count)
+\begin{DoxyCompactList}\small\item\em Verifies that the addAtRear function executed correctly. \item\end{DoxyCompactList}\item 
+void \hyperlink{TestList_8c_a539580e2fb8b15fd9d2e328d7a1a9cb8}{addAtFrontTest} (\hyperlink{structlist}{ListPtr} \hyperlink{structlist}{list}, int count)
+\begin{DoxyCompactList}\small\item\em Runs tests on the addAtFront function. \item\end{DoxyCompactList}\item 
+void \hyperlink{TestList_8c_a274df30df97d7d90d10d8ceaf5eab09b}{addAtRearTest} (\hyperlink{structlist}{ListPtr} \hyperlink{structlist}{list}, int count)
+\begin{DoxyCompactList}\small\item\em Runs tests on the addAtRear function. \item\end{DoxyCompactList}\item 
+void \hyperlink{TestList_8c_ad1ed136c9f5f81a564f7a500f959afb5}{verifyFrontAll} (\hyperlink{structlist}{ListPtr} \hyperlink{structlist}{list}, int count)
+\begin{DoxyCompactList}\small\item\em Verifies that removeFront function ran correctly. \item\end{DoxyCompactList}\item 
+void \hyperlink{TestList_8c_a1b9eec21f5912933bc145a0d0bdf82d7}{verifyRearAll} (\hyperlink{structlist}{ListPtr} \hyperlink{structlist}{list}, int count)
+\begin{DoxyCompactList}\small\item\em Verifies that removeRear function ran correctly. \item\end{DoxyCompactList}\item 
+void \hyperlink{TestList_8c_aa808cf4e3f139bc5acf50f98d41d7e79}{removeFrontAll} (\hyperlink{structlist}{ListPtr} \hyperlink{structlist}{list}, int count)
+\begin{DoxyCompactList}\small\item\em Runs tests on the removeFront function by removing all the nodes in the list. \item\end{DoxyCompactList}\item 
+void \hyperlink{TestList_8c_a5c8068951dc7450159b9500e12b6dea5}{removeRearAll} (\hyperlink{structlist}{ListPtr} \hyperlink{structlist}{list}, int count)
+\begin{DoxyCompactList}\small\item\em Runs tests on the removeRear function by removing all the nodes in the list. \item\end{DoxyCompactList}\item 
+void \hyperlink{TestList_8c_ad213f55f33b286a9d74a015b4cdbdb1f}{removeNodeAllTest} (\hyperlink{structlist}{ListPtr} \hyperlink{structlist}{list}, int count)
+\begin{DoxyCompactList}\small\item\em Runs tests on the removeNode function by removing all the nodes in the list. \item\end{DoxyCompactList}\item 
+void \hyperlink{TestList_8c_a1e4563369833a3ba1778cc50e4150bc2}{removeFrontOne} (\hyperlink{structlist}{ListPtr} \hyperlink{structlist}{list})
+\begin{DoxyCompactList}\small\item\em Runs tests on the removeFront function by removing one node. \item\end{DoxyCompactList}\item 
+int \hyperlink{TestList_8c_a3c04138a5bfe5d72780bb7e82a18e627}{main} (int argc, char $\ast$$\ast$argv)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const int \hyperlink{TestList_8c_a51ceacd2eee1ffa83fe1004e33a6a96f}{NUM\_\-TESTS} = 7
+\item 
+const int \hyperlink{TestList_8c_afec54c0b8794d59c37e8b7822ff5e006}{DEBUG} = 0
+\item 
+static const char \hyperlink{TestList_8c_a744589b90037ef1ac5f473102d3fb012}{sep} \mbox{[}$\,$\mbox{]} = \char`\"{}=========================================\char`\"{}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{TestList_8c_a539580e2fb8b15fd9d2e328d7a1a9cb8}{
+\index{TestList.c@{TestList.c}!addAtFrontTest@{addAtFrontTest}}
+\index{addAtFrontTest@{addAtFrontTest}!TestList.c@{TestList.c}}
+\subsubsection[{addAtFrontTest}]{\setlength{\rightskip}{0pt plus 5cm}void addAtFrontTest (
+\begin{DoxyParamCaption}
+\item[{{\bf ListPtr}}]{ list, }
+\item[{int}]{ count}
+\end{DoxyParamCaption}
+)}}
+\label{TestList_8c_a539580e2fb8b15fd9d2e328d7a1a9cb8}
+
+
+Runs tests on the addAtFront function. 
+
+\hypertarget{TestList_8c_a274df30df97d7d90d10d8ceaf5eab09b}{
+\index{TestList.c@{TestList.c}!addAtRearTest@{addAtRearTest}}
+\index{addAtRearTest@{addAtRearTest}!TestList.c@{TestList.c}}
+\subsubsection[{addAtRearTest}]{\setlength{\rightskip}{0pt plus 5cm}void addAtRearTest (
+\begin{DoxyParamCaption}
+\item[{{\bf ListPtr}}]{ list, }
+\item[{int}]{ count}
+\end{DoxyParamCaption}
+)}}
+\label{TestList_8c_a274df30df97d7d90d10d8ceaf5eab09b}
+
+
+Runs tests on the addAtRear function. 
+
+\hypertarget{TestList_8c_ae28671978ffaa1acebfc52fa2272e83f}{
+\index{TestList.c@{TestList.c}!displayDebugInfo@{displayDebugInfo}}
+\index{displayDebugInfo@{displayDebugInfo}!TestList.c@{TestList.c}}
+\subsubsection[{displayDebugInfo}]{\setlength{\rightskip}{0pt plus 5cm}void displayDebugInfo (
+\begin{DoxyParamCaption}
+\item[{{\bf ListPtr}}]{ list}
+\end{DoxyParamCaption}
+)}}
+\label{TestList_8c_ae28671978ffaa1acebfc52fa2272e83f}
+
+
+Displays the list and all the information it includes. 
+
+\hypertarget{TestList_8c_a3c04138a5bfe5d72780bb7e82a18e627}{
+\index{TestList.c@{TestList.c}!main@{main}}
+\index{main@{main}!TestList.c@{TestList.c}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{int}]{ argc, }
+\item[{char $\ast$$\ast$}]{ argv}
+\end{DoxyParamCaption}
+)}}
+\label{TestList_8c_a3c04138a5bfe5d72780bb7e82a18e627}
+\hypertarget{TestList_8c_a8d9d5174310f745f9f66a2e7e5978490}{
+\index{TestList.c@{TestList.c}!print\_\-stats@{print\_\-stats}}
+\index{print\_\-stats@{print\_\-stats}!TestList.c@{TestList.c}}
+\subsubsection[{print\_\-stats}]{\setlength{\rightskip}{0pt plus 5cm}void print\_\-stats (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{ tests}
+\end{DoxyParamCaption}
+)}}
+\label{TestList_8c_a8d9d5174310f745f9f66a2e7e5978490}
+\hypertarget{TestList_8c_aa808cf4e3f139bc5acf50f98d41d7e79}{
+\index{TestList.c@{TestList.c}!removeFrontAll@{removeFrontAll}}
+\index{removeFrontAll@{removeFrontAll}!TestList.c@{TestList.c}}
+\subsubsection[{removeFrontAll}]{\setlength{\rightskip}{0pt plus 5cm}void removeFrontAll (
+\begin{DoxyParamCaption}
+\item[{{\bf ListPtr}}]{ list, }
+\item[{int}]{ count}
+\end{DoxyParamCaption}
+)}}
+\label{TestList_8c_aa808cf4e3f139bc5acf50f98d41d7e79}
+
+
+Runs tests on the removeFront function by removing all the nodes in the list. 
+
+\hypertarget{TestList_8c_a1e4563369833a3ba1778cc50e4150bc2}{
+\index{TestList.c@{TestList.c}!removeFrontOne@{removeFrontOne}}
+\index{removeFrontOne@{removeFrontOne}!TestList.c@{TestList.c}}
+\subsubsection[{removeFrontOne}]{\setlength{\rightskip}{0pt plus 5cm}void removeFrontOne (
+\begin{DoxyParamCaption}
+\item[{{\bf ListPtr}}]{ list}
+\end{DoxyParamCaption}
+)}}
+\label{TestList_8c_a1e4563369833a3ba1778cc50e4150bc2}
+
+
+Runs tests on the removeFront function by removing one node. 
+
+\hypertarget{TestList_8c_ad213f55f33b286a9d74a015b4cdbdb1f}{
+\index{TestList.c@{TestList.c}!removeNodeAllTest@{removeNodeAllTest}}
+\index{removeNodeAllTest@{removeNodeAllTest}!TestList.c@{TestList.c}}
+\subsubsection[{removeNodeAllTest}]{\setlength{\rightskip}{0pt plus 5cm}void removeNodeAllTest (
+\begin{DoxyParamCaption}
+\item[{{\bf ListPtr}}]{ list, }
+\item[{int}]{ count}
+\end{DoxyParamCaption}
+)}}
+\label{TestList_8c_ad213f55f33b286a9d74a015b4cdbdb1f}
+
+
+Runs tests on the removeNode function by removing all the nodes in the list. 
+
+\hypertarget{TestList_8c_a5c8068951dc7450159b9500e12b6dea5}{
+\index{TestList.c@{TestList.c}!removeRearAll@{removeRearAll}}
+\index{removeRearAll@{removeRearAll}!TestList.c@{TestList.c}}
+\subsubsection[{removeRearAll}]{\setlength{\rightskip}{0pt plus 5cm}void removeRearAll (
+\begin{DoxyParamCaption}
+\item[{{\bf ListPtr}}]{ list, }
+\item[{int}]{ count}
+\end{DoxyParamCaption}
+)}}
+\label{TestList_8c_a5c8068951dc7450159b9500e12b6dea5}
+
+
+Runs tests on the removeRear function by removing all the nodes in the list. 
+
+\hypertarget{TestList_8c_ae89db4cac9255ae41a5964668dde0f26}{
+\index{TestList.c@{TestList.c}!runEdgeCases@{runEdgeCases}}
+\index{runEdgeCases@{runEdgeCases}!TestList.c@{TestList.c}}
+\subsubsection[{runEdgeCases}]{\setlength{\rightskip}{0pt plus 5cm}void runEdgeCases (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{TestList_8c_ae89db4cac9255ae41a5964668dde0f26}
+
+
+Runs edge tests on the current Doubly Linked List implementation. 
+
+\hypertarget{TestList_8c_a36d2816c9822a5239f22a3b6e7b193a1}{
+\index{TestList.c@{TestList.c}!runRandomTests@{runRandomTests}}
+\index{runRandomTests@{runRandomTests}!TestList.c@{TestList.c}}
+\subsubsection[{runRandomTests}]{\setlength{\rightskip}{0pt plus 5cm}void runRandomTests (
+\begin{DoxyParamCaption}
+\item[{int}]{ count, }
+\item[{unsigned int}]{ seed, }
+\item[{int}]{ n, }
+\item[{{\bf ListPtr}}]{ list}
+\end{DoxyParamCaption}
+)}}
+\label{TestList_8c_a36d2816c9822a5239f22a3b6e7b193a1}
+\hypertarget{TestList_8c_a081711090cb9ca19fc3a19c04a1851f8}{
+\index{TestList.c@{TestList.c}!verifyAddAtFrontList@{verifyAddAtFrontList}}
+\index{verifyAddAtFrontList@{verifyAddAtFrontList}!TestList.c@{TestList.c}}
+\subsubsection[{verifyAddAtFrontList}]{\setlength{\rightskip}{0pt plus 5cm}void verifyAddAtFrontList (
+\begin{DoxyParamCaption}
+\item[{{\bf ListPtr}}]{ list, }
+\item[{int}]{ count}
+\end{DoxyParamCaption}
+)}}
+\label{TestList_8c_a081711090cb9ca19fc3a19c04a1851f8}
+
+
+Verifies that the addAtFront function executed correctly. 
+
+\hypertarget{TestList_8c_affd35c0ad1aee735dde31607e0c229df}{
+\index{TestList.c@{TestList.c}!verifyAddAtRearList@{verifyAddAtRearList}}
+\index{verifyAddAtRearList@{verifyAddAtRearList}!TestList.c@{TestList.c}}
+\subsubsection[{verifyAddAtRearList}]{\setlength{\rightskip}{0pt plus 5cm}void verifyAddAtRearList (
+\begin{DoxyParamCaption}
+\item[{{\bf ListPtr}}]{ list, }
+\item[{int}]{ count}
+\end{DoxyParamCaption}
+)}}
+\label{TestList_8c_affd35c0ad1aee735dde31607e0c229df}
+
+
+Verifies that the addAtRear function executed correctly. 
+
+\hypertarget{TestList_8c_ad1ed136c9f5f81a564f7a500f959afb5}{
+\index{TestList.c@{TestList.c}!verifyFrontAll@{verifyFrontAll}}
+\index{verifyFrontAll@{verifyFrontAll}!TestList.c@{TestList.c}}
+\subsubsection[{verifyFrontAll}]{\setlength{\rightskip}{0pt plus 5cm}void verifyFrontAll (
+\begin{DoxyParamCaption}
+\item[{{\bf ListPtr}}]{ list, }
+\item[{int}]{ count}
+\end{DoxyParamCaption}
+)}}
+\label{TestList_8c_ad1ed136c9f5f81a564f7a500f959afb5}
+
+
+Verifies that removeFront function ran correctly. 
+
+\hypertarget{TestList_8c_a1b9eec21f5912933bc145a0d0bdf82d7}{
+\index{TestList.c@{TestList.c}!verifyRearAll@{verifyRearAll}}
+\index{verifyRearAll@{verifyRearAll}!TestList.c@{TestList.c}}
+\subsubsection[{verifyRearAll}]{\setlength{\rightskip}{0pt plus 5cm}void verifyRearAll (
+\begin{DoxyParamCaption}
+\item[{{\bf ListPtr}}]{ list, }
+\item[{int}]{ count}
+\end{DoxyParamCaption}
+)}}
+\label{TestList_8c_a1b9eec21f5912933bc145a0d0bdf82d7}
+
+
+Verifies that removeRear function ran correctly. 
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{TestList_8c_afec54c0b8794d59c37e8b7822ff5e006}{
+\index{TestList.c@{TestList.c}!DEBUG@{DEBUG}}
+\index{DEBUG@{DEBUG}!TestList.c@{TestList.c}}
+\subsubsection[{DEBUG}]{\setlength{\rightskip}{0pt plus 5cm}const int {\bf DEBUG} = 0}}
+\label{TestList_8c_afec54c0b8794d59c37e8b7822ff5e006}
+\hypertarget{TestList_8c_a51ceacd2eee1ffa83fe1004e33a6a96f}{
+\index{TestList.c@{TestList.c}!NUM\_\-TESTS@{NUM\_\-TESTS}}
+\index{NUM\_\-TESTS@{NUM\_\-TESTS}!TestList.c@{TestList.c}}
+\subsubsection[{NUM\_\-TESTS}]{\setlength{\rightskip}{0pt plus 5cm}const int {\bf NUM\_\-TESTS} = 7}}
+\label{TestList_8c_a51ceacd2eee1ffa83fe1004e33a6a96f}
+\hypertarget{TestList_8c_a744589b90037ef1ac5f473102d3fb012}{
+\index{TestList.c@{TestList.c}!sep@{sep}}
+\index{sep@{sep}!TestList.c@{TestList.c}}
+\subsubsection[{sep}]{\setlength{\rightskip}{0pt plus 5cm}const char {\bf sep}\mbox{[}$\,$\mbox{]} = \char`\"{}=========================================\char`\"{}\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{TestList_8c_a744589b90037ef1ac5f473102d3fb012}

@@ -1,0 +1,312 @@
+\hypertarget{shellUtil_8c}{
+\section{shellUtil.c File Reference}
+\label{shellUtil_8c}\index{shellUtil.c@{shellUtil.c}}
+}
+{\ttfamily \#include \char`\"{}shellUtil.h\char`\"{}}\par
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{shellUtil_8c_a7db3377eb0843c3cf28656287c7bdfef}{changeDir} (char $\ast$$\ast$arguments)
+\begin{DoxyCompactList}\small\item\em Changes the directory of the dash. \item\end{DoxyCompactList}\item 
+void \hyperlink{shellUtil_8c_a406c74d2574dd940825533e5c557cc9a}{fg} (char $\ast$$\ast$arguments, \hyperlink{structlist}{ListPtr} l, int count, char $\ast$bufCopy)
+\begin{DoxyCompactList}\small\item\em Takes a process on the job list and puts it in the foreground of the dash Note: if the job list contains no running jobs, no stopped jobs, or the argument points to a job that does not exist, the function will simply do nothing and return. \item\end{DoxyCompactList}\item 
+void \hyperlink{shellUtil_8c_a08244f9201a3192b4b4355b92f4b8775}{bgS} (char $\ast$$\ast$arguments, \hyperlink{structlist}{ListPtr} l, int count, char $\ast$bufCopy)
+\begin{DoxyCompactList}\small\item\em Takes a process on the job list and puts it in the background of the dash Note: if the job list contains no running jobs, no stopped jobs, or the argument points to a job that does not exist, the function will simply do nothing and return. \item\end{DoxyCompactList}\item 
+char $\ast$ \hyperlink{shellUtil_8c_a554f31185cf5603648a63bf1407a1d69}{getPrompt} ()
+\begin{DoxyCompactList}\small\item\em Gets and returns the prompt for the dash to use. \item\end{DoxyCompactList}\item 
+void \hyperlink{shellUtil_8c_a7584d1ddf90ea26b1d2b711b6b511e25}{printFinishedJobs} (\hyperlink{structlist}{ListPtr} \hyperlink{dash_8c_ac65771ff99d366ff3015fa760907d9d7}{jobList})
+\begin{DoxyCompactList}\small\item\em Prints any jobs that are done in the job list. \item\end{DoxyCompactList}\item 
+int \hyperlink{shellUtil_8c_a4cddf95adaf5a392834e85f8ef22737e}{isExitCommand} (char $\ast$buf)
+\begin{DoxyCompactList}\small\item\em Returns whether or not the string buffer contains the exit command. \item\end{DoxyCompactList}\item 
+int \hyperlink{shellUtil_8c_a193097a1a3fca9b3318faa33f9cfa2d9}{isBackgroundCommand} (char $\ast$buf)
+\begin{DoxyCompactList}\small\item\em Returns whether or not the string buffer contains the background command. \item\end{DoxyCompactList}\item 
+int \hyperlink{shellUtil_8c_a533bcbd8881e558203b1c8bf3ddad9be}{isCdCommand} (char $\ast$bufCopy, char $\ast$$\ast$arguments)
+\begin{DoxyCompactList}\small\item\em Returns whether or not the string buffer contains the cd command. \item\end{DoxyCompactList}\item 
+int \hyperlink{shellUtil_8c_afcf62d69242b6e22662571b0df2cac4d}{isJobsCommand} (char $\ast$buf)
+\begin{DoxyCompactList}\small\item\em Returns whether or not the string buffer contains the jobs command. \item\end{DoxyCompactList}\item 
+int \hyperlink{shellUtil_8c_ad0955410da5ffd3e49201e47695dd52f}{isCommandNotEmpty} (char $\ast$buf)
+\begin{DoxyCompactList}\small\item\em Returns whether or not the string buffer is empty. \item\end{DoxyCompactList}\item 
+int \hyperlink{shellUtil_8c_ac5c59a875ac8553cdd604941cb79d89e}{isFgCommand} (char $\ast$bufCopy, char $\ast$$\ast$arguments)
+\begin{DoxyCompactList}\small\item\em Returns whether or not the string buffer contains the fg command. \item\end{DoxyCompactList}\item 
+int \hyperlink{shellUtil_8c_af286768ea960ae7eefdebe099cace4bb}{isBgCommand} (char $\ast$bufCopy, char $\ast$$\ast$arguments)
+\begin{DoxyCompactList}\small\item\em Returns whether or not the string buffer contains the bg command. \item\end{DoxyCompactList}\item 
+void \hyperlink{shellUtil_8c_ad06996269f0c5ff7d6e8c9295e93d1c8}{runCommand} (char $\ast$$\ast$args, char $\ast$buf)
+\begin{DoxyCompactList}\small\item\em Executes the command and it's arguments contained in the array of string. \item\end{DoxyCompactList}\item 
+int \hyperlink{shellUtil_8c_a942d785bcd4b59000cec77c71a1eb17d}{isArgumentForShowingVersion} (char $\ast$$\ast$argv)
+\begin{DoxyCompactList}\small\item\em Returns whether or not the dash's arguments contains the version command. \item\end{DoxyCompactList}\item 
+void \hyperlink{shellUtil_8c_ad1f2a369d76eafe504096c6686c3b63a}{showVersionAndExit} ()
+\begin{DoxyCompactList}\small\item\em Shows the current repository version of the dash, and exits the dash. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{shellUtil_8c_a08244f9201a3192b4b4355b92f4b8775}{
+\index{shellUtil.c@{shellUtil.c}!bgS@{bgS}}
+\index{bgS@{bgS}!shellUtil.c@{shellUtil.c}}
+\subsubsection[{bgS}]{\setlength{\rightskip}{0pt plus 5cm}void bgS (
+\begin{DoxyParamCaption}
+\item[{char $\ast$$\ast$}]{ arguments, }
+\item[{{\bf ListPtr}}]{ l, }
+\item[{int}]{ count, }
+\item[{char $\ast$}]{ bufCopy}
+\end{DoxyParamCaption}
+)}}
+\label{shellUtil_8c_a08244f9201a3192b4b4355b92f4b8775}
+
+
+Takes a process on the job list and puts it in the background of the dash Note: if the job list contains no running jobs, no stopped jobs, or the argument points to a job that does not exist, the function will simply do nothing and return. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em arguments}]Array of string arguments passed in with the fg command \item[{\em l}]Job list for the dash \item[{\em count}]Number of arguments in the arguments array. Used to free the array when it is no longer needed \item[{\em bufCopy}]Copy of the buffer to free after the job is put in the foregrond. Optional. \end{DoxyParams}
+\hypertarget{shellUtil_8c_a7db3377eb0843c3cf28656287c7bdfef}{
+\index{shellUtil.c@{shellUtil.c}!changeDir@{changeDir}}
+\index{changeDir@{changeDir}!shellUtil.c@{shellUtil.c}}
+\subsubsection[{changeDir}]{\setlength{\rightskip}{0pt plus 5cm}void changeDir (
+\begin{DoxyParamCaption}
+\item[{char $\ast$$\ast$}]{ arguments}
+\end{DoxyParamCaption}
+)}}
+\label{shellUtil_8c_a7db3377eb0843c3cf28656287c7bdfef}
+
+
+Changes the directory of the dash. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em argyments}]Array of strings that contains the arguments passed in for the cd command \end{DoxyParams}
+\hypertarget{shellUtil_8c_a406c74d2574dd940825533e5c557cc9a}{
+\index{shellUtil.c@{shellUtil.c}!fg@{fg}}
+\index{fg@{fg}!shellUtil.c@{shellUtil.c}}
+\subsubsection[{fg}]{\setlength{\rightskip}{0pt plus 5cm}void fg (
+\begin{DoxyParamCaption}
+\item[{char $\ast$$\ast$}]{ arguments, }
+\item[{{\bf ListPtr}}]{ l, }
+\item[{int}]{ count, }
+\item[{char $\ast$}]{ bufCopy}
+\end{DoxyParamCaption}
+)}}
+\label{shellUtil_8c_a406c74d2574dd940825533e5c557cc9a}
+
+
+Takes a process on the job list and puts it in the foreground of the dash Note: if the job list contains no running jobs, no stopped jobs, or the argument points to a job that does not exist, the function will simply do nothing and return. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em arguments}]Array of string arguments passed in with the fg command \item[{\em l}]Job list for the dash \item[{\em count}]Number of arguments in the arguments array. Used to free the array when it is no longer needed \item[{\em bufCopy}]Copy of the buffer to free after the job is put in the foregrond. Optional. \end{DoxyParams}
+\hypertarget{shellUtil_8c_a554f31185cf5603648a63bf1407a1d69}{
+\index{shellUtil.c@{shellUtil.c}!getPrompt@{getPrompt}}
+\index{getPrompt@{getPrompt}!shellUtil.c@{shellUtil.c}}
+\subsubsection[{getPrompt}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ getPrompt (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{shellUtil_8c_a554f31185cf5603648a63bf1407a1d69}
+
+
+Gets and returns the prompt for the dash to use. 
+
+The environment variable that defines the dash prompt is DASH\_\-PROMPT \begin{DoxyReturn}{Returns}
+Prompt that is either defined by the evironment variable, or the default value \%\% 
+\end{DoxyReturn}
+\hypertarget{shellUtil_8c_a942d785bcd4b59000cec77c71a1eb17d}{
+\index{shellUtil.c@{shellUtil.c}!isArgumentForShowingVersion@{isArgumentForShowingVersion}}
+\index{isArgumentForShowingVersion@{isArgumentForShowingVersion}!shellUtil.c@{shellUtil.c}}
+\subsubsection[{isArgumentForShowingVersion}]{\setlength{\rightskip}{0pt plus 5cm}int isArgumentForShowingVersion (
+\begin{DoxyParamCaption}
+\item[{char $\ast$$\ast$}]{ argv}
+\end{DoxyParamCaption}
+)}}
+\label{shellUtil_8c_a942d785bcd4b59000cec77c71a1eb17d}
+
+
+Returns whether or not the dash's arguments contains the version command. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em buf}]String buffer \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Boolean true or false depending on whether the dash's arguments contains the version command 
+\end{DoxyReturn}
+\hypertarget{shellUtil_8c_a193097a1a3fca9b3318faa33f9cfa2d9}{
+\index{shellUtil.c@{shellUtil.c}!isBackgroundCommand@{isBackgroundCommand}}
+\index{isBackgroundCommand@{isBackgroundCommand}!shellUtil.c@{shellUtil.c}}
+\subsubsection[{isBackgroundCommand}]{\setlength{\rightskip}{0pt plus 5cm}int isBackgroundCommand (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{ buf}
+\end{DoxyParamCaption}
+)}}
+\label{shellUtil_8c_a193097a1a3fca9b3318faa33f9cfa2d9}
+
+
+Returns whether or not the string buffer contains the background command. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em buf}]String buffer \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Boolean true or false depending on whether the buffer contains the background command 
+\end{DoxyReturn}
+\hypertarget{shellUtil_8c_af286768ea960ae7eefdebe099cace4bb}{
+\index{shellUtil.c@{shellUtil.c}!isBgCommand@{isBgCommand}}
+\index{isBgCommand@{isBgCommand}!shellUtil.c@{shellUtil.c}}
+\subsubsection[{isBgCommand}]{\setlength{\rightskip}{0pt plus 5cm}int isBgCommand (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{ bufCopy, }
+\item[{char $\ast$$\ast$}]{ arguments}
+\end{DoxyParamCaption}
+)}}
+\label{shellUtil_8c_af286768ea960ae7eefdebe099cace4bb}
+
+
+Returns whether or not the string buffer contains the bg command. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em buf}]String buffer \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Boolean true or false depending on whether the buffer contains the bg command 
+\end{DoxyReturn}
+\hypertarget{shellUtil_8c_a533bcbd8881e558203b1c8bf3ddad9be}{
+\index{shellUtil.c@{shellUtil.c}!isCdCommand@{isCdCommand}}
+\index{isCdCommand@{isCdCommand}!shellUtil.c@{shellUtil.c}}
+\subsubsection[{isCdCommand}]{\setlength{\rightskip}{0pt plus 5cm}int isCdCommand (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{ bufCopy, }
+\item[{char $\ast$$\ast$}]{ arguments}
+\end{DoxyParamCaption}
+)}}
+\label{shellUtil_8c_a533bcbd8881e558203b1c8bf3ddad9be}
+
+
+Returns whether or not the string buffer contains the cd command. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em buf}]String buffer \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Boolean true or false depending on whether the buffer contains the cd command 
+\end{DoxyReturn}
+\hypertarget{shellUtil_8c_ad0955410da5ffd3e49201e47695dd52f}{
+\index{shellUtil.c@{shellUtil.c}!isCommandNotEmpty@{isCommandNotEmpty}}
+\index{isCommandNotEmpty@{isCommandNotEmpty}!shellUtil.c@{shellUtil.c}}
+\subsubsection[{isCommandNotEmpty}]{\setlength{\rightskip}{0pt plus 5cm}int isCommandNotEmpty (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{ buf}
+\end{DoxyParamCaption}
+)}}
+\label{shellUtil_8c_ad0955410da5ffd3e49201e47695dd52f}
+
+
+Returns whether or not the string buffer is empty. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em buf}]String buffer \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Boolean true or false depending on whether the buffer is empty 
+\end{DoxyReturn}
+\hypertarget{shellUtil_8c_a4cddf95adaf5a392834e85f8ef22737e}{
+\index{shellUtil.c@{shellUtil.c}!isExitCommand@{isExitCommand}}
+\index{isExitCommand@{isExitCommand}!shellUtil.c@{shellUtil.c}}
+\subsubsection[{isExitCommand}]{\setlength{\rightskip}{0pt plus 5cm}int isExitCommand (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{ buf}
+\end{DoxyParamCaption}
+)}}
+\label{shellUtil_8c_a4cddf95adaf5a392834e85f8ef22737e}
+
+
+Returns whether or not the string buffer contains the exit command. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em buf}]String buffer \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Boolean true or false depending on whether the buffer contains the exit command 
+\end{DoxyReturn}
+\hypertarget{shellUtil_8c_ac5c59a875ac8553cdd604941cb79d89e}{
+\index{shellUtil.c@{shellUtil.c}!isFgCommand@{isFgCommand}}
+\index{isFgCommand@{isFgCommand}!shellUtil.c@{shellUtil.c}}
+\subsubsection[{isFgCommand}]{\setlength{\rightskip}{0pt plus 5cm}int isFgCommand (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{ bufCopy, }
+\item[{char $\ast$$\ast$}]{ arguments}
+\end{DoxyParamCaption}
+)}}
+\label{shellUtil_8c_ac5c59a875ac8553cdd604941cb79d89e}
+
+
+Returns whether or not the string buffer contains the fg command. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em buf}]String buffer \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Boolean true or false depending on whether the buffer contains the fg command 
+\end{DoxyReturn}
+\hypertarget{shellUtil_8c_afcf62d69242b6e22662571b0df2cac4d}{
+\index{shellUtil.c@{shellUtil.c}!isJobsCommand@{isJobsCommand}}
+\index{isJobsCommand@{isJobsCommand}!shellUtil.c@{shellUtil.c}}
+\subsubsection[{isJobsCommand}]{\setlength{\rightskip}{0pt plus 5cm}int isJobsCommand (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{ buf}
+\end{DoxyParamCaption}
+)}}
+\label{shellUtil_8c_afcf62d69242b6e22662571b0df2cac4d}
+
+
+Returns whether or not the string buffer contains the jobs command. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em buf}]String buffer \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Boolean true or false depending on whether the buffer contains the jobs command 
+\end{DoxyReturn}
+\hypertarget{shellUtil_8c_a7584d1ddf90ea26b1d2b711b6b511e25}{
+\index{shellUtil.c@{shellUtil.c}!printFinishedJobs@{printFinishedJobs}}
+\index{printFinishedJobs@{printFinishedJobs}!shellUtil.c@{shellUtil.c}}
+\subsubsection[{printFinishedJobs}]{\setlength{\rightskip}{0pt plus 5cm}void printFinishedJobs (
+\begin{DoxyParamCaption}
+\item[{{\bf ListPtr}}]{ jobList}
+\end{DoxyParamCaption}
+)}}
+\label{shellUtil_8c_a7584d1ddf90ea26b1d2b711b6b511e25}
+
+
+Prints any jobs that are done in the job list. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em jobList}]Job list to search for done jobs. \end{DoxyParams}
+\hypertarget{shellUtil_8c_ad06996269f0c5ff7d6e8c9295e93d1c8}{
+\index{shellUtil.c@{shellUtil.c}!runCommand@{runCommand}}
+\index{runCommand@{runCommand}!shellUtil.c@{shellUtil.c}}
+\subsubsection[{runCommand}]{\setlength{\rightskip}{0pt plus 5cm}void runCommand (
+\begin{DoxyParamCaption}
+\item[{char $\ast$$\ast$}]{ args, }
+\item[{char $\ast$}]{ buf}
+\end{DoxyParamCaption}
+)}}
+\label{shellUtil_8c_ad06996269f0c5ff7d6e8c9295e93d1c8}
+
+
+Executes the command and it's arguments contained in the array of string. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em args}]Array of strings containing the command itself at index 0. \item[{\em buf}]String buffer used to display an error to the user if the command can not execute. \end{DoxyParams}
+\hypertarget{shellUtil_8c_ad1f2a369d76eafe504096c6686c3b63a}{
+\index{shellUtil.c@{shellUtil.c}!showVersionAndExit@{showVersionAndExit}}
+\index{showVersionAndExit@{showVersionAndExit}!shellUtil.c@{shellUtil.c}}
+\subsubsection[{showVersionAndExit}]{\setlength{\rightskip}{0pt plus 5cm}void showVersionAndExit (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{shellUtil_8c_ad1f2a369d76eafe504096c6686c3b63a}
+
+
+Shows the current repository version of the dash, and exits the dash. 
+

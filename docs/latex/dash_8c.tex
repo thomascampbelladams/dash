@@ -1,0 +1,107 @@
+\hypertarget{dash_8c}{
+\section{dash.c File Reference}
+\label{dash_8c}\index{dash.c@{dash.c}}
+}
+{\ttfamily \#include $<$stdio.h$>$}\par
+{\ttfamily \#include $<$string.h$>$}\par
+{\ttfamily \#include $<$sys/types.h$>$}\par
+{\ttfamily \#include $<$sys/wait.h$>$}\par
+{\ttfamily \#include $<$readline/readline.h$>$}\par
+{\ttfamily \#include $<$readline/history.h$>$}\par
+{\ttfamily \#include $<$pwd.h$>$}\par
+{\ttfamily \#include $<$signal.h$>$}\par
+{\ttfamily \#include $<$setjmp.h$>$}\par
+{\ttfamily \#include \char`\"{}ourhdr.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}List.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}keyBindings.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}command.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}shellUtil.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}signals.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}buddySystem.h\char`\"{}}\par
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{dash_8c_a556466ec124c7a8e6f22a8d46c232a12}{jumpBack} ()
+\item 
+void \hyperlink{dash_8c_a25a40b6614565f755233080a384c35f1}{initialize} ()
+\item 
+\hyperlink{structnode}{NodePtr} \hyperlink{dash_8c_addd20475a4c61e2284f63ea6ff893231}{createAndSetNode} (int $\ast$jobNumber, int backgroundJob, char $\ast$bufCopy, int isBackground)
+\item 
+void \hyperlink{dash_8c_a87edaed2197b91ed9748740ba19c99a6}{recordCommand} (\hyperlink{structnode}{NodePtr} n, int jobNumber, int isBackground)
+\item 
+int \hyperlink{dash_8c_a3c04138a5bfe5d72780bb7e82a18e627}{main} (int argc, char $\ast$$\ast$argv)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structlist}{ListPtr} \hyperlink{dash_8c_ac65771ff99d366ff3015fa760907d9d7}{jobList}
+\item 
+jmp\_\-buf \hyperlink{dash_8c_af874a28e8c6b92a261021f526f4f8378}{env}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{dash_8c_addd20475a4c61e2284f63ea6ff893231}{
+\index{dash.c@{dash.c}!createAndSetNode@{createAndSetNode}}
+\index{createAndSetNode@{createAndSetNode}!dash.c@{dash.c}}
+\subsubsection[{createAndSetNode}]{\setlength{\rightskip}{0pt plus 5cm}{\bf NodePtr} createAndSetNode (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{ jobNumber, }
+\item[{int}]{ backgroundJob, }
+\item[{char $\ast$}]{ bufCopy, }
+\item[{int}]{ isBackground}
+\end{DoxyParamCaption}
+)}}
+\label{dash_8c_addd20475a4c61e2284f63ea6ff893231}
+\hypertarget{dash_8c_a25a40b6614565f755233080a384c35f1}{
+\index{dash.c@{dash.c}!initialize@{initialize}}
+\index{initialize@{initialize}!dash.c@{dash.c}}
+\subsubsection[{initialize}]{\setlength{\rightskip}{0pt plus 5cm}void initialize (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{dash_8c_a25a40b6614565f755233080a384c35f1}
+\hypertarget{dash_8c_a556466ec124c7a8e6f22a8d46c232a12}{
+\index{dash.c@{dash.c}!jumpBack@{jumpBack}}
+\index{jumpBack@{jumpBack}!dash.c@{dash.c}}
+\subsubsection[{jumpBack}]{\setlength{\rightskip}{0pt plus 5cm}void jumpBack (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{dash_8c_a556466ec124c7a8e6f22a8d46c232a12}
+\hypertarget{dash_8c_a3c04138a5bfe5d72780bb7e82a18e627}{
+\index{dash.c@{dash.c}!main@{main}}
+\index{main@{main}!dash.c@{dash.c}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{int}]{ argc, }
+\item[{char $\ast$$\ast$}]{ argv}
+\end{DoxyParamCaption}
+)}}
+\label{dash_8c_a3c04138a5bfe5d72780bb7e82a18e627}
+\hypertarget{dash_8c_a87edaed2197b91ed9748740ba19c99a6}{
+\index{dash.c@{dash.c}!recordCommand@{recordCommand}}
+\index{recordCommand@{recordCommand}!dash.c@{dash.c}}
+\subsubsection[{recordCommand}]{\setlength{\rightskip}{0pt plus 5cm}void recordCommand (
+\begin{DoxyParamCaption}
+\item[{{\bf NodePtr}}]{ n, }
+\item[{int}]{ jobNumber, }
+\item[{int}]{ isBackground}
+\end{DoxyParamCaption}
+)}}
+\label{dash_8c_a87edaed2197b91ed9748740ba19c99a6}
+
+
+\subsection{Variable Documentation}
+\hypertarget{dash_8c_af874a28e8c6b92a261021f526f4f8378}{
+\index{dash.c@{dash.c}!env@{env}}
+\index{env@{env}!dash.c@{dash.c}}
+\subsubsection[{env}]{\setlength{\rightskip}{0pt plus 5cm}jmp\_\-buf {\bf env}}}
+\label{dash_8c_af874a28e8c6b92a261021f526f4f8378}
+\hypertarget{dash_8c_ac65771ff99d366ff3015fa760907d9d7}{
+\index{dash.c@{dash.c}!jobList@{jobList}}
+\index{jobList@{jobList}!dash.c@{dash.c}}
+\subsubsection[{jobList}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ListPtr} {\bf jobList}}}
+\label{dash_8c_ac65771ff99d366ff3015fa760907d9d7}

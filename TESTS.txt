@@ -1,0 +1,125 @@
+Tests for the buddy system can be found in:
+
+buddySystem.c
+buddy-test.c
+
+Also, the TestList and Dash were used to extensively test the buddy system by using tests
+already implemented for the List and Dash implementations. If the tests completed succesfully,
+then the buddy system implementation worked as it should.
+
+The following tests should output the following:
+===============================================================================
+%% sleep 100 &
+[2] 87581 sleep 100
+%% bg
+%% jobs
+[1] Running sleep 100
+%% exit
+===============================================================================
+%% ls
+<contents of current directory>
+%% cd
+%% ls
+<contents of home directory>
+%% ls -lr
+<recursive listing of home directory in long format>
+%% cd /home/
+%% ls
+aquota.user  faculty  flexLM  lost+found  spam  staff  students  subversion
+%% exit
+===============================================================================
+%% sleep 101 &
+[2] 87746 sleep 101
+%% sleep 103 &
+[3] 87747 sleep 103
+%% sleep 105 &
+[4] 87750 sleep 105
+%% ./loop
+^Z
+[4] Stopped ./loop
+%% jobs
+[4] Stopped ./loop
+[3] Running sleep 105
+[2] Running sleep 103
+[1] Running sleep 101
+%% bg
+
+[4] ./loop
+%% jobs
+[4] Running ./loop
+[3] Running sleep 105
+[2] Running sleep 103
+[1] Running sleep 101
+%% exit
+===============================================================================
+%% ./loop
+^Z
+[1] Stopped ./loop
+%% ./loop
+^Z
+[2] Stopped ./loop
+%% jobs
+[2] Stopped ./loop
+[1] Stopped ./loop
+%% bg
+
+[2] ./loop
+%% jobs
+[2] Running ./loop
+[1] Stopped ./loop
+%% bg
+
+[1] ./loop
+%% jobs
+[2] Running ./loop
+[1] Running ./loop
+%% exit
+===============================================================================
+%% sleep 10 &
+[2] 87818 sleep 10
+%% fg
+%% sleep 10
+^Z
+[2] Stopped sleep 10
+%% fg
+%% jobs
+%% exit
+===============================================================================
+%% sleep 100 &
+[2] 87823 sleep 100
+%% ^C
+Caught Control-c
+%% ^Z
+Caught Control-z
+%% jobs
+[1] Running sleep 100
+%% exit
+===============================================================================
+%% sleep 100 &
+[2] 87848 sleep 100
+%% sleep 200
+^C
+[2] Killed sleep 200
+%%
+%% jobs
+[1] Running sleep 100
+%% exit
+===============================================================================
+exit should exit normally even if first command
+===============================================================================
+%% jobs
+%% exit
+===============================================================================
+%%
+%%
+%% exit
+===============================================================================
+%% sleep 1
+%% sleep 1 &
+[3] 87914 sleep 1
+%%
+[2] Done sleep 1
+%% jobs
+[2] Done    sleep 1
+%% exit
+===============================================================================

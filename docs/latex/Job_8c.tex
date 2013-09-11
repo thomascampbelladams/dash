@@ -1,0 +1,220 @@
+\hypertarget{Job_8c}{
+\section{Job.c File Reference}
+\label{Job_8c}\index{Job.c@{Job.c}}
+}
+{\ttfamily \#include \char`\"{}Job.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}buddySystem.h\char`\"{}}\par
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{Job_8c_a4a06c6b08f4990afe44c2465dedc54e2}{isJobNull} (\hyperlink{structjob}{JobPtr} \hyperlink{structjob}{job})
+\begin{DoxyCompactList}\small\item\em Tests the JobPtr to see if it is NULL. \item\end{DoxyCompactList}\item 
+int \hyperlink{Job_8c_a5fd463ff01d15adf5c5dff4e1c08690a}{isJobRunning} (\hyperlink{structjob}{JobPtr} \hyperlink{structjob}{job})
+\begin{DoxyCompactList}\small\item\em Tests the JobPtr to see if it is running. \item\end{DoxyCompactList}\item 
+int \hyperlink{Job_8c_a7c8133d1843cc15c401770caef67360b}{isJobStopped} (\hyperlink{structjob}{JobPtr} \hyperlink{structjob}{job})
+\begin{DoxyCompactList}\small\item\em Tests the JobPtr to see if it is stopped. \item\end{DoxyCompactList}\item 
+int \hyperlink{Job_8c_a0315bfde550151737110f28a468b7c50}{isJobInBackground} (\hyperlink{structjob}{JobPtr} \hyperlink{structjob}{job})
+\begin{DoxyCompactList}\small\item\em Tests the JobPtr to see if it is in the background. \item\end{DoxyCompactList}\item 
+int \hyperlink{Job_8c_afa0d46fca3532cdf6e5e49545b65ff89}{isJobDone} (\hyperlink{structjob}{JobPtr} \hyperlink{structjob}{job})
+\begin{DoxyCompactList}\small\item\em Tests the JobPtr to see if it is done. \item\end{DoxyCompactList}\item 
+\hyperlink{structjob}{JobPtr} \hyperlink{Job_8c_ad21bccb8956b43fef0dd2fd0a8b140b1}{createJob} (int jobid, char $\ast$command, int jobnu)
+\begin{DoxyCompactList}\small\item\em Creates a new JobPtr and returns it. \item\end{DoxyCompactList}\item 
+char $\ast$ \hyperlink{Job_8c_a999bdd3536cdec14bcd7408caabeae4a}{getStatusString} (int status)
+\begin{DoxyCompactList}\small\item\em Returns a string representation of the jobs current status. \item\end{DoxyCompactList}\item 
+char $\ast$ \hyperlink{Job_8c_a4a19b0282b9edb412a09eb634b947471}{toString} (\hyperlink{structjob}{JobPtr} \hyperlink{structnode}{node})
+\begin{DoxyCompactList}\small\item\em Prints out a string representation of the JobPtr. \item\end{DoxyCompactList}\item 
+void \hyperlink{Job_8c_aa163165827cea161a3cd128b518ac15d}{freeJob} (\hyperlink{structjob}{JobPtr} \hyperlink{structjob}{job})
+\begin{DoxyCompactList}\small\item\em Deallocs a job. \item\end{DoxyCompactList}\item 
+void \hyperlink{Job_8c_aa2358accd2fadb3f8cf790124aed90c1}{freeArguments} (int count, char $\ast$$\ast$args, char $\ast$bufCopy)
+\begin{DoxyCompactList}\small\item\em Frees all the arguments used to run a job. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{Job_8c_ad21bccb8956b43fef0dd2fd0a8b140b1}{
+\index{Job.c@{Job.c}!createJob@{createJob}}
+\index{createJob@{createJob}!Job.c@{Job.c}}
+\subsubsection[{createJob}]{\setlength{\rightskip}{0pt plus 5cm}{\bf JobPtr} createJob (
+\begin{DoxyParamCaption}
+\item[{int}]{ jobid, }
+\item[{char $\ast$}]{ command, }
+\item[{int}]{ jobnu}
+\end{DoxyParamCaption}
+)}}
+\label{Job_8c_ad21bccb8956b43fef0dd2fd0a8b140b1}
+
+
+Creates a new JobPtr and returns it. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em jobid}]PID for the new job. \item[{\em command}]Command represented by the job. \item[{\em jobnu}]Number for the new job. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+New JobPtr 
+\end{DoxyReturn}
+\hypertarget{Job_8c_aa2358accd2fadb3f8cf790124aed90c1}{
+\index{Job.c@{Job.c}!freeArguments@{freeArguments}}
+\index{freeArguments@{freeArguments}!Job.c@{Job.c}}
+\subsubsection[{freeArguments}]{\setlength{\rightskip}{0pt plus 5cm}void freeArguments (
+\begin{DoxyParamCaption}
+\item[{int}]{ count, }
+\item[{char $\ast$$\ast$}]{ args, }
+\item[{char $\ast$}]{ bufCopy}
+\end{DoxyParamCaption}
+)}}
+\label{Job_8c_aa2358accd2fadb3f8cf790124aed90c1}
+
+
+Frees all the arguments used to run a job. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em count}]Number of arguments to free \item[{\em args}]Array of strings to free \item[{\em bufCopy}]String Buffer to free. Optional. \end{DoxyParams}
+\hypertarget{Job_8c_aa163165827cea161a3cd128b518ac15d}{
+\index{Job.c@{Job.c}!freeJob@{freeJob}}
+\index{freeJob@{freeJob}!Job.c@{Job.c}}
+\subsubsection[{freeJob}]{\setlength{\rightskip}{0pt plus 5cm}void freeJob (
+\begin{DoxyParamCaption}
+\item[{{\bf JobPtr}}]{ job}
+\end{DoxyParamCaption}
+)}}
+\label{Job_8c_aa163165827cea161a3cd128b518ac15d}
+
+
+Deallocs a job. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em job}]JobPtr to dealloc \end{DoxyParams}
+\hypertarget{Job_8c_a999bdd3536cdec14bcd7408caabeae4a}{
+\index{Job.c@{Job.c}!getStatusString@{getStatusString}}
+\index{getStatusString@{getStatusString}!Job.c@{Job.c}}
+\subsubsection[{getStatusString}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ getStatusString (
+\begin{DoxyParamCaption}
+\item[{int}]{ status}
+\end{DoxyParamCaption}
+)}}
+\label{Job_8c_a999bdd3536cdec14bcd7408caabeae4a}
+
+
+Returns a string representation of the jobs current status. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em status}]Status of the job \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+String representation of that job 
+\end{DoxyReturn}
+\hypertarget{Job_8c_afa0d46fca3532cdf6e5e49545b65ff89}{
+\index{Job.c@{Job.c}!isJobDone@{isJobDone}}
+\index{isJobDone@{isJobDone}!Job.c@{Job.c}}
+\subsubsection[{isJobDone}]{\setlength{\rightskip}{0pt plus 5cm}int isJobDone (
+\begin{DoxyParamCaption}
+\item[{{\bf JobPtr}}]{ job}
+\end{DoxyParamCaption}
+)}}
+\label{Job_8c_afa0d46fca3532cdf6e5e49545b65ff89}
+
+
+Tests the JobPtr to see if it is done. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em job}]JobPtr to test \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Result of test 
+\end{DoxyReturn}
+\hypertarget{Job_8c_a0315bfde550151737110f28a468b7c50}{
+\index{Job.c@{Job.c}!isJobInBackground@{isJobInBackground}}
+\index{isJobInBackground@{isJobInBackground}!Job.c@{Job.c}}
+\subsubsection[{isJobInBackground}]{\setlength{\rightskip}{0pt plus 5cm}int isJobInBackground (
+\begin{DoxyParamCaption}
+\item[{{\bf JobPtr}}]{ job}
+\end{DoxyParamCaption}
+)}}
+\label{Job_8c_a0315bfde550151737110f28a468b7c50}
+
+
+Tests the JobPtr to see if it is in the background. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em job}]JobPtr to test \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Result of test 
+\end{DoxyReturn}
+\hypertarget{Job_8c_a4a06c6b08f4990afe44c2465dedc54e2}{
+\index{Job.c@{Job.c}!isJobNull@{isJobNull}}
+\index{isJobNull@{isJobNull}!Job.c@{Job.c}}
+\subsubsection[{isJobNull}]{\setlength{\rightskip}{0pt plus 5cm}int isJobNull (
+\begin{DoxyParamCaption}
+\item[{{\bf JobPtr}}]{ job}
+\end{DoxyParamCaption}
+)}}
+\label{Job_8c_a4a06c6b08f4990afe44c2465dedc54e2}
+
+
+Tests the JobPtr to see if it is NULL. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em job}]JobPtr to test \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Result of test 
+\end{DoxyReturn}
+\hypertarget{Job_8c_a5fd463ff01d15adf5c5dff4e1c08690a}{
+\index{Job.c@{Job.c}!isJobRunning@{isJobRunning}}
+\index{isJobRunning@{isJobRunning}!Job.c@{Job.c}}
+\subsubsection[{isJobRunning}]{\setlength{\rightskip}{0pt plus 5cm}int isJobRunning (
+\begin{DoxyParamCaption}
+\item[{{\bf JobPtr}}]{ job}
+\end{DoxyParamCaption}
+)}}
+\label{Job_8c_a5fd463ff01d15adf5c5dff4e1c08690a}
+
+
+Tests the JobPtr to see if it is running. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em job}]JobPtr to test \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Result of test 
+\end{DoxyReturn}
+\hypertarget{Job_8c_a7c8133d1843cc15c401770caef67360b}{
+\index{Job.c@{Job.c}!isJobStopped@{isJobStopped}}
+\index{isJobStopped@{isJobStopped}!Job.c@{Job.c}}
+\subsubsection[{isJobStopped}]{\setlength{\rightskip}{0pt plus 5cm}int isJobStopped (
+\begin{DoxyParamCaption}
+\item[{{\bf JobPtr}}]{ job}
+\end{DoxyParamCaption}
+)}}
+\label{Job_8c_a7c8133d1843cc15c401770caef67360b}
+
+
+Tests the JobPtr to see if it is stopped. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em job}]JobPtr to test \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Result of test 
+\end{DoxyReturn}
+\hypertarget{Job_8c_a4a19b0282b9edb412a09eb634b947471}{
+\index{Job.c@{Job.c}!toString@{toString}}
+\index{toString@{toString}!Job.c@{Job.c}}
+\subsubsection[{toString}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ toString (
+\begin{DoxyParamCaption}
+\item[{{\bf JobPtr}}]{ node}
+\end{DoxyParamCaption}
+)}}
+\label{Job_8c_a4a19b0282b9edb412a09eb634b947471}
+
+
+Prints out a string representation of the JobPtr. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em node}]JobPtr to print \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+String that represents the JobPtr 
+\end{DoxyReturn}
